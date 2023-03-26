@@ -1,8 +1,10 @@
 const siteRouter = require('./site')
-const registerRouter = require('./register')
+const authRouter = require('./auth')
+
+
 function route(app) {
+    app.use('/', authRouter)
     app.use('/', siteRouter)
-    app.use('/register', registerRouter)
 
 }
 module.exports = route;

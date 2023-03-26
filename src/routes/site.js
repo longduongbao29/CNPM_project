@@ -3,9 +3,11 @@ var router = express.Router()
 
 
 const siteController = require('../app/controllers/SiteController')
+// const authenticate = require('../app/middleware/authenticate')
+const AuthController = require('../app/controllers/AuthController')
 
-router.get('/', siteController.home)
-
+router.get('/', AuthController.loginRequired, siteController.home)
+router.get('/home', AuthController.loginRequired, siteController.home)
 
 
 module.exports = router;
