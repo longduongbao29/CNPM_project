@@ -4,31 +4,39 @@ const jwt = require('jsonwebtoken');
 const { response } = require("express");
 
 const register = (req, res, next) => {
-    console.log(req.body.password)
     bcrypt.hash(req.body.password, 10, function (err, hashedPass) {
-        // if (err) {
-        //     console.error(err)
-        // }
-        let user = new User({
-            name: req.body.name,
-            email: req.body.email,
-            phone: req.body.phone,
-            password: hashedPass
+        User.findOne({ email: req.body.email }).then(user => {
+            if (user) {
+                req.flash('message', 'Account has already existed')
+                return res.redirect('/login-page')
+            }
+            else {
+                let user = new User({
+                    name: req.body.name,
+                    email: req.body.email,
+                    password: hashedPass
+                })
+                user.save()
+                    .then((user) => {
+                        res.json({
+                            message: 'User saved successfully'
+                        })
+                    })
+                    .catch(err => {
+                        res.json({
+                            message: 'Error saving user'
+                        })
+                    })
+            }
         })
-        user.save()
-            .then((user) => {
-                res.json({
-                    message: 'User saved successfully'
-                })
-            })
-            .catch(err => {
-                res.json({
-                    message: 'Error saving user'
-                })
-            })
-    })
 
+
+
+    })
 }
+
+
+
 
 const login = (req, res, next) => {
     var username = req.body.email
@@ -64,6 +72,7 @@ const login = (req, res, next) => {
 
 
                     } else {
+                        req.flash('message', 'Password does not match!')
                         return res.redirect('/login-page')
                         res.json({
                             message: 'Password does not match',
@@ -73,6 +82,7 @@ const login = (req, res, next) => {
                 })
             }
             else {
+                req.flash('message', 'User not found!')
                 return res.redirect('/login-page')
                 res.status(200).json({
                     message: 'User not found'
@@ -120,6 +130,7 @@ const loginRequired = (req, res, next) => {
     }
     req.user = User.findById(req.session.userID)
     if (!req.user) {
+
         return res.json({ message: 'User userID no longer exsist' })
     }
 
@@ -129,8 +140,10 @@ const loginRequired = (req, res, next) => {
 }
 
 const render = (req, res) => {
-    return res.render('register');
+    const message = req.flash('message')
+    return res.render('register', { message });
 }
+
 
 module.exports = {
     register, loginRequired, login, logout, refreshToken, render

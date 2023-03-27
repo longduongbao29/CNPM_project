@@ -9,9 +9,10 @@ const bodyParser = require("body-parser");
 const dotenv = require('dotenv').config({ paht: '.env' })
 const mongodb = require('./mongodb')
 const expressSession = require("express-session");
+const flash = require('connect-flash');
 
 app.use(express.json({ limit: "1KB" }))
-
+app.use(flash())
 app.use(expressSession({
     name: "longduong.sid",
     resave: false,
@@ -43,8 +44,6 @@ app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'resources', 'views'))
 
 route(app)
-
-
 
 
 app.listen(process.env.PORT, () => {

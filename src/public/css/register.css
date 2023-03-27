@@ -24,6 +24,17 @@ body {
   overflow: hidden;
   margin: 0 20px; }
 
+.alert.alert-danger {
+  color: #ff0000;
+  text-align: center;
+  border-color: #ffffff00;
+  background-color: #ffffff00;
+  padding-top: 0%;
+  padding-bottom: 0%;
+  margin-top: 5%;
+  margin-bottom: 0%;
+  border-radius: 10%; }
+
 .container .forms {
   display: flex;
   align-items: center;
