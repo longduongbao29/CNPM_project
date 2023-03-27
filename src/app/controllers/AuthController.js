@@ -1,92 +1,40 @@
-const User = require("../models/User");
+const User = require("../models/User")
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken');
-const { response } = require("express");
-
-const register = (req, res, next) => {
-    bcrypt.hash(req.body.password, 10, function (err, hashedPass) {
-        User.findOne({ email: req.body.email }).then(user => {
-            if (user) {
-                req.flash('message', 'Account has already existed')
-                return res.redirect('/login-page')
-            }
-            else {
-                let user = new User({
-                    name: req.body.name,
-                    email: req.body.email,
-                    password: hashedPass
-                })
-                user.save()
-                    .then((user) => {
-                        res.json({
-                            message: 'User saved successfully'
-                        })
-                    })
-                    .catch(err => {
-                        res.json({
-                            message: 'Error saving user'
-                        })
-                    })
-            }
-        })
-
-
-
-    })
-}
-
+const jwt = require('jsonwebtoken')
+const { response } = require("express")
 
 
 
 const login = (req, res, next) => {
-    var username = req.body.email
+    var id = req.body.studentID
     var password = req.body.password
 
-    // console.log(username, password)
+    console.log(id, password)
 
-    User.findOne({ email: username })
+    User.findOne({ studentID: id })
         .then(user => {
             if (user) {
+                console.log(password, user.password)
                 bcrypt.compare(password, user.password, function (err, result) {
-                    // if (err) {
-                    //     res.json({
-                    //         error: err
-                    //     })
-                    // }
                     if (result) {
                         let token = jwt.sign({ name: user.name }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME })
                         let refreshtoken = jwt.sign({ name: user.name }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRE_TIME })
                         req.session.userID = user.id
                         req.session.save()
-                        console.log("Login userID", req.session.userID)
                         return res.redirect('/home')
-                        res.json({
-
-                            message: 'Login successful',
-                            token,
-                            refreshtoken
-                        })
-
-
-
 
 
                     } else {
-                        req.flash('message', 'Password does not match!')
+                        req.flash('message', 'Mật khẩu sai!')
                         return res.redirect('/login-page')
-                        res.json({
-                            message: 'Password does not match',
-                        })
+
 
                     }
                 })
             }
             else {
-                req.flash('message', 'User not found!')
+                req.flash('message', 'Không tìm thấy mã sinh viên!')
                 return res.redirect('/login-page')
-                res.status(200).json({
-                    message: 'User not found'
-                })
 
             }
 
@@ -94,11 +42,9 @@ const login = (req, res, next) => {
 
 }
 const logout = (req, res) => {
-    console.log("Session userID:", req.session.userID)
     delete req.session.userID
-
-    res.json({ message: 'User logged out' })
-
+    req.flash('logout', 'Đăng xuất thành công!')
+    res.redirect('/')
 
 }
 const refreshToken = (req, res, next) => {
@@ -141,10 +87,11 @@ const loginRequired = (req, res, next) => {
 
 const render = (req, res) => {
     const message = req.flash('message')
-    return res.render('register', { message });
+    const logoutMessage = req.flash('logout')
+    return res.render('login', { message, logoutMessage })
 }
 
 
 module.exports = {
-    register, loginRequired, login, logout, refreshToken, render
+    loginRequired, login, logout, refreshToken, render
 }

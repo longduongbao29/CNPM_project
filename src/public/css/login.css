@@ -18,11 +18,19 @@ body {
 .container {
   position: relative;
   max-width: 430px;
-  width: 100%;
+  width: 150%;
   background: rgba(255, 255, 255, 0);
   border-radius: 10px;
   overflow: hidden;
   margin: 0 20px; }
+
+#logoutMessage {
+  border-radius: 20px;
+  background: #ffffff68;
+  padding: 20px;
+  padding-top: 0px;
+  width: 80%;
+  height: 30px; }
 
 .alert.alert-danger {
   color: #ff0000;
@@ -44,7 +52,7 @@ body {
 
 .container .form {
   border-radius: 10px;
-  width: 50%;
+  width: 40%;
   padding: 30px;
   background-color: #ffffffb2;
   transition: margin-left 0.18s ease; }

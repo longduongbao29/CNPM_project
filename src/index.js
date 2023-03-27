@@ -1,15 +1,15 @@
 const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
-const hbs = require('express-handlebars');
+const hbs = require('express-handlebars')
 const app = express()
 const route = require('./routes')
 const AuthRoute = require('./routes/auth')
-const bodyParser = require("body-parser");
+const bodyParser = require("body-parser")
 const dotenv = require('dotenv').config({ paht: '.env' })
 const mongodb = require('./mongodb')
-const expressSession = require("express-session");
-const flash = require('connect-flash');
+const expressSession = require("express-session")
+const flash = require('connect-flash')
 
 app.use(express.json({ limit: "1KB" }))
 app.use(flash())
@@ -25,8 +25,8 @@ app.use(expressSession({
 }))
 
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 //Post cua form 
 app.use(express.json())

@@ -10,4 +10,4 @@ router.get('/', AuthController.loginRequired, siteController.home)
 router.get('/home', AuthController.loginRequired, siteController.home)
 
 
-module.exports = router;
+module.exports = router
