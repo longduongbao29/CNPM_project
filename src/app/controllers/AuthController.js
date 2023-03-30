@@ -76,7 +76,6 @@ const loginRequired = (req, res, next) => {
     }
     req.user = User.findById(req.session.userID)
     if (!req.user) {
-
         return res.json({ message: 'User userID no longer exsist' })
     }
 
