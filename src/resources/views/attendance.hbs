@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My UET</title>
+    <style>
+        p {
+            padding: 0px;
+            
+            margin: 0px;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        {{>header}}
+    </header>
+
+    <b>Họ tên: <!--Thêm userName--> </b>
+    <p>Mã sinh viên:<!--Thêm studentID--></p>
+    <p>Lớp: <!--Thêm studentClass--></p>
+
+    <h1 style="text-align:center">Lịch sử điểm danh</h1>
+    <table class="table">
+    <thead class="thead-dark">
+        <tr>
+        <th scope="col">Mã lớp học</th>
+        <th scope="col">Tên lớp học</th>
+        <th scope="col">Điểm danh</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <th scope="row" id="class-code"><!--Thêm classCode/mã lớp học--></th>
+        <td id="class-name"><!--Thêm className/tên lớp học--></td>
+        <td id="attendance-count"><!--Thêm attendance-count/số lần điểm danh--></td>
+        </tr>
+        <!--Thêm các dòng vào từ database-->
+        <!--Kết thúc bảng-->
+    </tbody>
+    </table>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+    <script>
+        
+    </script>
+</body>
+
+</html>

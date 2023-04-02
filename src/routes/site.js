@@ -9,6 +9,7 @@ const AuthController = require('../app/controllers/AuthController')
 // Cần yêu cầu đăng nhập mới vào được các trang dưới
 router.get('/', AuthController.loginRequired, siteController.home)
 router.get('/home', AuthController.loginRequired, siteController.home)
+router.get('/attendance', AuthController.loginRequired, siteController.attendance)
 
 
 module.exports = router
