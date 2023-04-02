@@ -1,3 +1,4 @@
+// Xử lý route đăng nhập/ đăng xuất
 const express = require('express')
 const router = express.Router()
 

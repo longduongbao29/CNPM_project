@@ -6,6 +6,7 @@ const siteController = require('../app/controllers/SiteController')
 // const authenticate = require('../app/middleware/authenticate')
 const AuthController = require('../app/controllers/AuthController')
 
+// Cần yêu cầu đăng nhập mới vào được các trang dưới
 router.get('/', AuthController.loginRequired, siteController.home)
 router.get('/home', AuthController.loginRequired, siteController.home)
 
