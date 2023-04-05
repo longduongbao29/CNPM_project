@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const userSchema = new Schema({
+const studentInfoSchema = new Schema({
     studentID: {
         type: String
     },
@@ -12,7 +12,7 @@ const userSchema = new Schema({
         type: String
     },
     date_of_birth: {
-        type: String
+        type: Date
     },
     sex: {
         type: String
@@ -28,6 +28,6 @@ const userSchema = new Schema({
     }
 }, { timestamps: true })
 
-const CourseInfo = mongoose.model('User', userSchema)
+const StudentInfo = mongoose.model('Student_Info', studentInfoSchema, 'student_info')
 
-module.exports = CourseInfo
+module.exports = StudentInfo

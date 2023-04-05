@@ -1,20 +1,21 @@
-const User = require("../models/User")
-
+const { Student_Course } = require('../models/Models');
 class SiteController {
-    home(req, res) {     
+    home(req, res) {
         res.render('home')
     }
 
     attendance(req, res, next) {
-        User.find({})
-            .then(userSchema => res.render('attendance', {
-                classCode: '000001',
-                className: 'Mon hoc'
-            }))
-            .catch(next);
-        
+        let id = req.session.userID
+        Student_Course.find({ studentID: id }).populate('course').then(courses => {
+            courses = courses.map(course => course.toObject())
+            res.render('attendance', { courses })
+        }).catch(err => {
+            res.json({
+                message: err.message
+            })
+        })
+
+
     }
-
-
 }
 module.exports = new SiteController

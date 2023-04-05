@@ -8,7 +8,7 @@
     <style>
         p {
             padding: 0px;
-            
+
             margin: 0px;
         }
     </style>
@@ -27,22 +27,27 @@
 
     <h1 style="text-align:center">Lịch sử điểm danh</h1>
     <table class="table">
-    <thead class="thead-dark">
-        <tr>
-        <th scope="col">Mã lớp học</th>
-        <th scope="col">Tên lớp học</th>
-        <th scope="col">Điểm danh</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-        <th scope="row" id="class-code"><!--Thêm classCode/mã lớp học--></th>
-        <td id="class-name"><!--Thêm className/tên lớp học--></td>
-        <td id="attendance-count"><!--Thêm attendance-count/số lần điểm danh--></td>
-        </tr>
-        <!--Thêm các dòng vào từ database-->
-        <!--Kết thúc bảng-->
-    </tbody>
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Mã lớp học</th>
+                <th scope="col">Tên lớp học</th>
+                <th scope="col">Điểm danh</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each courses}}
+            <tr>
+                <th scope="row" id="class-code"><!--Thêm classCode/mã lớp học-->{{this.course.course_ID}}</th>
+                <td id="class-name"><!--Thêm className/tên lớp học-->{{this.course.course_name}}</td>
+                <td id="attendance-count"><!--Thêm attendance-count/số lần điểm danh-->{{this.attendance_check}}
+                </td>
+
+            </tr>
+            {{/each}}
+
+            <!--Thêm các dòng vào từ database-->
+            <!--Kết thúc bảng-->
+        </tbody>
     </table>
 
 
@@ -50,7 +55,7 @@
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
         crossorigin="anonymous"></script>
     <script>
-        
+
     </script>
     <script src="ajax.googleapis.com/ajax/libs/jquery/2.1.3/…"></script>
     <script src="maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/…"></script>

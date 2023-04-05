@@ -12,7 +12,7 @@ const flash = require('connect-flash')
 const expressValidator = require('express-validator')
 const app = express()
 
-
+mongodb.connectDB()
 app.use(express.json({ limit: "1KB" }))
 app.use(flash())
 //Express session lưu phiên đăng nhập

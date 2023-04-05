@@ -1,9 +1,7 @@
-const User = require("../models/User")
 const bcrypt = require('bcryptjs') //Mã hóa mật khẩu lên database
 const jwt = require('jsonwebtoken') //Token bảo vệ route 
 const { response } = require("express")
-
-
+const { User } = require("../models/Models")
 
 const login = (req, res, next) => {
     var id = req.body.studentID
@@ -17,7 +15,7 @@ const login = (req, res, next) => {
                     if (result) {
                         let token = jwt.sign({ name: user.name }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME })
                         let refreshtoken = jwt.sign({ name: user.name }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRE_TIME })
-                        req.session.userID = user.id // Tạo session mới - phiên đăng nhập
+                        req.session.userID = user.studentID // Tạo session mới - phiên đăng nhập
                         req.session.save() // Lưu phiên đăng nhập
                         return res.redirect('/home')
 
@@ -65,7 +63,6 @@ const refreshToken = (req, res, next) => {
     })
 }
 const loginRequired = (req, res, next) => {
-    console.log("Session userID:", req.session.userID)
     if (!req.session || !req.session.userID) {
         return res.redirect('/login-page')
         return res.json({

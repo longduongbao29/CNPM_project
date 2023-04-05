@@ -1,24 +1,22 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const userSchema = new Schema({
+const student_courseSchema = new Schema({
     studentID: {
         type: String,
-    },
-    course_ID: {
-        type: String
     },
     finished: {
         type: Boolean
     },
-    atendance_check: {
-        type: Number
-    },
     mark: {
         type: Number
-    }
+    },
+    attendance_check: {
+        type: Number
+    },
+    course: { type: Schema.Types.ObjectId, ref: 'CourseInfo' }
 }, { timestamps: true })
 
-const CourseInfo = mongoose.model('User', userSchema)
+const Student_Course = mongoose.model('student_course', student_courseSchema, 'student_course')
 
-module.exports = CourseInfo
+module.exports = Student_Course
