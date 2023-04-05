@@ -21,9 +21,9 @@
         {{>header}}
     </header>
 
-    <b>Họ tên: <!--Thêm userName--> </b>
-    <p>Mã sinh viên:<!--Thêm studentID--></p>
-    <p>Lớp: <!--Thêm studentClass--></p>
+    <b>Họ tên: <!--Thêm userName-->{{student.student_name}} </b>
+    <p>Mã sinh viên:<!--Thêm studentID-->{{student.studentID}}</p>
+    <p>Lớp: <!--Thêm studentClass-->{{student.course_class}}</p>
 
     <h1 style="text-align:center">Lịch sử điểm danh</h1>
     <table class="table">
@@ -32,10 +32,12 @@
                 <th scope="col">Mã lớp học</th>
                 <th scope="col">Tên lớp học</th>
                 <th scope="col">Điểm danh</th>
+
             </tr>
         </thead>
         <tbody>
             {{#each courses}}
+            {{#unless this.finish}}
             <tr>
                 <th scope="row" id="class-code"><!--Thêm classCode/mã lớp học-->{{this.course.course_ID}}</th>
                 <td id="class-name"><!--Thêm className/tên lớp học-->{{this.course.course_name}}</td>
@@ -43,6 +45,7 @@
                 </td>
 
             </tr>
+            {{/unless}}
             {{/each}}
 
             <!--Thêm các dòng vào từ database-->

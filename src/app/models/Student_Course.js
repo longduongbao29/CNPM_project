@@ -5,6 +5,7 @@ const student_courseSchema = new Schema({
     studentID: {
         type: String,
     },
+    course: { type: Schema.Types.ObjectId, ref: 'CourseInfo' },
     finished: {
         type: Boolean
     },
@@ -13,8 +14,8 @@ const student_courseSchema = new Schema({
     },
     attendance_check: {
         type: Number
-    },
-    course: { type: Schema.Types.ObjectId, ref: 'CourseInfo' }
+    }
+
 }, { timestamps: true })
 
 const Student_Course = mongoose.model('student_course', student_courseSchema, 'student_course')
