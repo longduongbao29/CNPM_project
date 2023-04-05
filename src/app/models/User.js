@@ -7,6 +7,10 @@ const userSchema = new Schema({
     },
     password: {
         type: String
+    },
+    student_info: {
+        type: Schema.Types.ObjectId,
+        ref : 'StudentInfo'
     }
 }, { timestamps: true })
 

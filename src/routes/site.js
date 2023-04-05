@@ -10,6 +10,7 @@ const AuthController = require('../app/controllers/AuthController')
 router.get('/', AuthController.loginRequired, siteController.home)
 router.get('/home', AuthController.loginRequired, siteController.home)
 router.get('/attendance', AuthController.loginRequired, siteController.attendance)
+router.get('/timetable', AuthController.loginRequired, siteController.timetable)
 
 
 module.exports = router

@@ -14,8 +14,11 @@ class SiteController {
                 message: err.message
             })
         })
-
-
     }
+    timetable(req, res) {
+        res.render('timetable')
+    }
+    
+
 }
 module.exports = new SiteController
