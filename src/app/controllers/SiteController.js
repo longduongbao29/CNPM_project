@@ -58,5 +58,9 @@ class SiteController {
     admin(req, res) {
         res.render('admin')
 
+    }
+    timetable(req, res) {
+        res.render('timetable')
+    }
 }
 module.exports = new SiteController
