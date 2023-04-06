@@ -7,9 +7,12 @@ const userSchema = new Schema({
     },
     password: {
         type: String
+    },
+    role: {
+        type: String
     }
 }, { timestamps: true })
 
-const User = mongoose.model('User', userSchema,'users')
+const User = mongoose.model('User', userSchema, 'users')
 
 module.exports = User

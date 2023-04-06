@@ -37,7 +37,7 @@
         </thead>
         <tbody>
             {{#each courses}}
-            {{#unless this.finish}}
+            {{#unless this.finished}}
             <tr>
                 <th scope="row" id="class-code"><!--Thêm classCode/mã lớp học-->{{this.course.course_ID}}</th>
                 <td id="class-name"><!--Thêm className/tên lớp học-->{{this.course.course_name}}</td>

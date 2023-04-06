@@ -2,10 +2,17 @@ const jwt = require('jsonwebtoken')
 
 const authenticate = (req, res, next) => {
     try {
-        const token = req.headers.authorization.split(' ')[1]
+        const token = req.cookies.jwt
         const decode = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
-        req.user = decode
-        next()
+        console.log(decode);
+
+        if (decode.role == 'admin')
+            next()
+        else {
+            res.json({
+                message: "You do not have permission to access"
+            })
+        }
     }
     catch (error) {
         if (error.name == "TokenExpiredError") {
@@ -13,10 +20,8 @@ const authenticate = (req, res, next) => {
                 message: "Token Expired"
             })
         }
-        res.redirect('/register')
         res.json({
-
-            message: "Authentication failed"
+            message: error.message
         })
     }
 }

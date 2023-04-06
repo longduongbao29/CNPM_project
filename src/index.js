@@ -1,8 +1,8 @@
 const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
-const hbs = require('express-handlebars')
 const route = require('./routes')
+const hbs = require('./handlebars')
 const AuthRoute = require('./routes/auth')
 const bodyParser = require("body-parser")
 const dotenv = require('dotenv').config({ paht: '.env' })
@@ -10,9 +10,11 @@ const mongodb = require('./mongodb')
 const expressSession = require("express-session")
 const flash = require('connect-flash')
 const expressValidator = require('express-validator')
+const cookieParser = require('cookie-parser');
 const app = express()
 
 mongodb.connectDB()
+app.use(cookieParser())
 app.use(express.json({ limit: "1KB" }))
 app.use(flash())
 //Express session lưu phiên đăng nhập

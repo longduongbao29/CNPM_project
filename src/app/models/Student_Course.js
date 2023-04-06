@@ -9,7 +9,13 @@ const student_courseSchema = new Schema({
     finished: {
         type: Boolean
     },
-    mark: {
+    mark10: {
+        type: Number
+    },
+    letter_ratings: {
+        type: String
+    },
+    mark4: {
         type: Number
     },
     attendance_check: {

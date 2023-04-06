@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken') //Token bảo vệ route
 const { response } = require("express")
 const { User } = require("../models/Models")
 
+
 const login = (req, res, next) => {
     var id = req.body.studentID
     var password = req.body.password
@@ -13,8 +14,10 @@ const login = (req, res, next) => {
             if (user) {
                 bcrypt.compare(password, user.password, function (err, result) { // Giải mã và kiểm tra mật khẩu 
                     if (result) {
-                        let token = jwt.sign({ name: user.name }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME })
-                        let refreshtoken = jwt.sign({ name: user.name }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRE_TIME })
+                        let token = jwt.sign({ name: user.name, role: user.role }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME })
+                        let refreshtoken = jwt.sign({ name: user.name, role: user.role }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRE_TIME })
+                        res.cookie('jwt', token, { httpOnly: true, secure: true });
+
                         req.session.userID = user.studentID // Tạo session mới - phiên đăng nhập
                         req.session.save() // Lưu phiên đăng nhập
                         return res.redirect('/home')
@@ -51,7 +54,7 @@ const refreshToken = (req, res, next) => {
                 err
             })
         } else {
-            let token = jwt.sign({ name: decode.name }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME })
+            let token = jwt.sign({ name: decode.name, role: user.role }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME })
             let refreshToken = req.body.refreshToken
             res.json({
                 message: 'refresh token',
