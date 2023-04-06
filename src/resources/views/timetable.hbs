@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My UET</title>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="/css/timetable.css"></style>
+    <link rel="stylesheet" href="/css/timetable.css">
+    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
@@ -18,10 +19,9 @@
 
     <div class="container">
         <div class="w-95 w-md-75 w-lg-60 w-xl-55 mx-auto mb-6 text-center">
-            <div class="subtitle alt-font"><span class="text-primary">#04</span><span class="title">Timetable</span>
+            <div class="subtitle alt-font"><span class="text-primary"></span><span class="title"></span>
             </div>
-            <h2 class="display-18 display-md-16 display-lg-14 mb-0">Committed to fabulous and great <span
-                    class="text-primary">#Timetable</span></h2>
+            <h2 class="display-18 display-md-16 display-lg-14 mb-0"> <span class="text-primary">Timetable</span></h2>
         </div>
         <div class="row overflow-auto">
             <div class="col-md-12">
@@ -29,7 +29,7 @@
                     <table class="table bg-white ">
                         <thead>
                             <tr>
-                                <th>Routine</th>
+                                <th class="day">Routine</th>
                                 <th>7h-7h50</th>
                                 <th>8h-8h50</th>
                                 <th>9h-9h50</th>
@@ -47,91 +47,126 @@
                         <tbody>
                             <tr>
                                 <td class="day">Sunday</td>
-                                <td class="active">
-                                    {{!--class active de chi cho co hoat dong--}}
+                                {{#each course}}
                                     
+                                {{/each}}
+                                <td class="t1">
+                                    {{!--class active de chi cho co hoat dong--}}
+
                                     {{!-- hien thi khi chua hover chuot
-                                    <h4>{{course_name}}</h4> 
+                                    <h4>{{course_name}}</h4>
                                     <p>{{room}}</p>
 
                                     hien thi khi hover chuot
                                     <div class="hover">
-                                        <h4>{{course_name}}</h4> 
+                                        <h4>{{course_name}}</h4>
                                         <p>{{room}}</p>
                                         <span>{{teacher_name}}</span>
-                                    </div> --}}
-                                    
+                                    </div>  --}}
+
                                 </td>
-                                <td></td>
-                                <td class="active">
-                                </td>
-                                <td class="active">
-                                </td>
-                                <td></td>
+                                <td class="t2"></td>
+                                <td class="t3"></td>
+                                <td class="t4"></td>
+                                <td class="t5"></td>
+                                <td class="t6"></td>
+                                <td class="t7"></td>
+                                <td class="t8"></td>
+                                <td class="t9"></td>
+                                <td class="t10"></td>
+                                <td class="t11"></td>
+                                <td class="t12"></td>
+
                             </tr>
                             <tr>
                                 <td class="day">Monday</td>
-                                <td></td>
-                                <td class="active">
-                                </td>
-                                <td class="active"></td>
-                                </td>
-                                <td></td>
-                                <td class="active">
-                                </td>
+                                <td class="t1"></td>
+                                <td class="t2"></td>
+                                <td class="t3"></td>
+                                <td class="t4"></td>
+                                <td class="t5"></td>
+                                <td class="t6"></td>
+                                <td class="t7"></td>
+                                <td class="t8"></td>
+                                <td class="t9"></td>
+                                <td class="t10"></td>
+                                <td class="t11"></td>
+                                <td class="t12"></td>
                             </tr>
                             <tr>
                                 <td class="day">Tuesday</td>
-                                <td class="active">
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td class="active">
-                                </td>
-                                <td class="active">
-                                </td>
+                                <td class="t1"></td>
+                                <td class="t2"></td>
+                                <td class="t3"></td>
+                                <td class="t4"></td>
+                                <td class="t5"></td>
+                                <td class="t6"></td>
+                                <td class="t7"></td>
+                                <td class="t8"></td>
+                                <td class="t9"></td>
+                                <td class="t10"></td>
+                                <td class="t11"></td>
+                                <td class="t12"></td>
                             </tr>
                             <tr>
                                 <td class="day">Wednesday</td>
-                                <td class="active">
-                                </td>
-                                <td></td>
-                                <td class="active">
-                                </td>
-                                <td></td>
-                                <td class="active">
-                                </td>
+                                <td class="t1"></td>
+                                <td class="t2"></td>
+                                <td class="t3"></td>
+                                <td class="t4"></td>
+                                <td class="t5"></td>
+                                <td class="t6"></td>
+                                <td class="t7"></td>
+                                <td class="t8"></td>
+                                <td class="t9"></td>
+                                <td class="t10"></td>
+                                <td class="t11"></td>
+                                <td class="t12"></td>
                             </tr>
                             <tr>
                                 <td class="day">Thursday</td>
-                                <td></td>
-                                <td class="active">
-                                </td>
-                                <td></td>
-                                <td class="active">
-                                </td>
-                                <td></td>
+                                <td class="t1"></td>
+                                <td class="t2"></td>
+                                <td class="t3"></td>
+                                <td class="t4"></td>
+                                <td class="t5"></td>
+                                <td class="t6"></td>
+                                <td class="t7"></td>
+                                <td class="t8"></td>
+                                <td class="t9"></td>
+                                <td class="t10"></td>
+                                <td class="t11"></td>
+                                <td class="t12"></td>
                             </tr>
                             <tr>
                                 <td class="day">Friday</td>
-                                <td class="active">
-                                </td>
-                                <td></td>
-                                <td class="active">
-                                </td>
-                                <td></td>
-                                <td class="active">
-                                </td>
+                                <td class="t1"></td>
+                                <td class="t2"></td>
+                                <td class="t3"></td>
+                                <td class="t4"></td>
+                                <td class="t5"></td>
+                                <td class="t6"></td>
+                                <td class="t7"></td>
+                                <td class="t8"></td>
+                                <td class="t9"></td>
+                                <td class="t10"></td>
+                                <td class="t11"></td>
+                                <td class="t12"></td>
                             </tr>
                             <tr>
-                                <td class="day">Satrday</td>
-                                <td></td>
-                                <td></td>
-                                <td class="active">
-                                </td>
-                                <td class="active">
-                                </td>
-                                <td></td>
+                                <td class="day">Saturday</td>
+                                <td class="t1"></td>
+                                <td class="t2"></td>
+                                <td class="t3"></td>
+                                <td class="t4"></td>
+                                <td class="t5"></td>
+                                <td class="t6"></td>
+                                <td class="t7"></td>
+                                <td class="t8"></td>
+                                <td class="t9"></td>                                </td>
+                                <td class="t10"></td>
+                                <td class="t11"></td>
+                                <td class="t12"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -144,7 +179,6 @@
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
         crossorigin="anonymous"></script>
     <script>
-
     </script>
     <script src="ajax.googleapis.com/ajax/libs/jquery/2.1.3/…"></script>
     <script src="maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/…"></script>
