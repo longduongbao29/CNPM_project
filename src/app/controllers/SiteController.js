@@ -59,6 +59,7 @@ class SiteController {
         res.render('admin')
 
     }
+
     timetable(req, res) {
         res.render('timetable')
     }
