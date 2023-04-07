@@ -18,9 +18,6 @@ class SiteController {
             courses = courses_.map(course => course.toObject())
 
         })
-        await StudentInfo.findOne({ studentID: id }).then(student_ => {
-            student = student_.toObject()
-        })
         res.render('attendance', { courses, student })
 
     }
