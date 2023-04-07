@@ -46,6 +46,17 @@ app.use(morgan('combined'))
 //Handle bars
 app.engine('hbs', hbs.engine({
     extname: 'hbs',
+    //helpers: require ('./config/handlebars-helper.js')
+    helpers: {
+        monday: (value) => value == 0,
+        tuesday: (value) => value == 1,
+        wednesday: (value) => value == 2,
+        thursday: (value) => value == 3,
+        friday: (value) => value == 4,
+        saturday: (value) => value == 5,
+        number: (val1, val2) => val1 >= val2[1] && val1 <= val2[2],
+        equal: (val1, val2) => val1 == val2,
+    }
 }))
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'resources', 'views'))
