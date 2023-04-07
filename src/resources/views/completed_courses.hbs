@@ -29,7 +29,6 @@
         </thead>
         <tbody>
             {{#each courses}}
-            {{#if this.finished}}
             <tr>
                 <th scope="row" id="class-code">{{this.course.course_ID}}</th>
                 <td id="class-name">{{this.course.course_name}}</td>
@@ -39,7 +38,6 @@
                 <td id="room">{{this.mark4}}</td>
 
             </tr>
-            {{/if}}
             {{/each}}
 
             <p>Tổng số tín chỉ: {{creditsCount}}</p>

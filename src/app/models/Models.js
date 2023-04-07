@@ -2,7 +2,8 @@ module.exports = {
     User: require('./User.js'),
     StudentInfo: require('./StudentInfo.js'),
     CouseInfo: require('./CourseInfo.js'),
-    Student_Course: require('./Student_Course.js')
+    Completed_Courses: require('./Completed_Courses.js'),
+    CoursesInProgress: require('./Courses_In_Progress.js')
 }
 
 

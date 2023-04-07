@@ -28,6 +28,6 @@ const courseInfoSchema = new Schema({
     }
 }, { timestamps: true })
 
-const CourseInfo = mongoose.model('CourseInfo', courseInfoSchema, 'course_info')
+const CourseInfo = mongoose.model('CourseInfo', courseInfoSchema, 'course_infos')
 
 module.exports = CourseInfo

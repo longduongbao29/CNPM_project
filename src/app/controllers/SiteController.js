@@ -1,5 +1,6 @@
 const { StudentInfo } = require('../models/Models')
-const { Student_Course } = require('../models/Models');
+const { Completed_Courses } = require('../models/Models')
+const { CoursesInProgress } = require('../models/Models')
 class SiteController {
     async home(req, res) {
         let id = req.session.userID
@@ -13,19 +14,22 @@ class SiteController {
     async attendance(req, res, next) {
 
         let id = req.session.userID
-        let courses, student
-        await Student_Course.find({ studentID: id }).populate('course').then((courses_) => {
+        let courses
+        await CoursesInProgress.find({ studentID: id }).populate('course').then((courses_) => {
             courses = courses_.map(course => course.toObject())
 
         })
-        res.render('attendance', { courses, student })
+        for (let course of courses) {
+            console.log(course)
+        }
+        res.render('attendance', { courses })
 
     }
 
     async courses_in_progress(req, res, next) {
         let id = req.session.userID
         let courses
-        await Student_Course.find({ studentID: id }).populate('course').then((courses_) => {
+        await CoursesInProgress.find({ studentID: id }).populate('course').then((courses_) => {
             courses = courses_.map(course => course.toObject())
 
         })
@@ -35,16 +39,13 @@ class SiteController {
         let id = req.session.userID
         let courses
         let sumMark = 0, creditsCount = 0, GPA
-        await Student_Course.find({ studentID: id }).populate('course').then((courses_) => {
+        await Completed_Courses.find({ studentID: id }).populate('course').populate('course').then((courses_) => {
             courses = courses_.map(course => course.toObject())
 
         })
         courses.forEach(course => {
-            if (course.finished) {
-                sumMark += course.mark4 * course.course.course_credits
-                creditsCount += course.course.course_credits
-            }
-
+            sumMark += course.mark4 * course.course.course_credits
+            creditsCount += course.course.course_credits
         })
         GPA = sumMark / creditsCount
 
@@ -60,7 +61,7 @@ class SiteController {
     async timetable(req, res) {
         let id = req.session.userID
         let courses
-        await Student_Course.find({ studentID: id }).populate('course').then((courses_) => {
+        await CoursesInProgress.find({ studentID: id }).populate('course').then((courses_) => {
             courses = courses_.map(course => course.toObject())
 
         })
@@ -85,8 +86,6 @@ class SiteController {
                     room: course.course.room
                 }
             }
-
-
         }
 
         res.render('timetable', { array })

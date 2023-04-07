@@ -1,14 +1,11 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const student_courseSchema = new Schema({
+const completedCourseSchema = new Schema({
     studentID: {
         type: String,
     },
     course: { type: Schema.Types.ObjectId, ref: 'CourseInfo' },
-    finished: {
-        type: Boolean
-    },
     mark10: {
         type: Number
     },
@@ -17,13 +14,10 @@ const student_courseSchema = new Schema({
     },
     mark4: {
         type: Number
-    },
-    attendance_check: {
-        type: Number
     }
 
 }, { timestamps: true })
 
-const Student_Course = mongoose.model('student_course', student_courseSchema, 'student_course')
+const Completed_Courses = mongoose.model('Completed_Courses', completedCourseSchema, 'completed_courses')
 
-module.exports = Student_Course
+module.exports = Completed_Courses

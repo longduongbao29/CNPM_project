@@ -29,7 +29,6 @@
         </thead>
         <tbody>
             {{#each courses}}
-            {{#unless this.finished}}
             <tr>
                 <th scope="row" id="class-code">{{this.course.course_ID}}</th>
                 <td id="class-name">{{this.course.course_name}}</td>
@@ -39,7 +38,6 @@
                 <td id="room">{{this.course.room}}</td>
 
             </tr>
-            {{/unless}}
             {{/each}}
 
 

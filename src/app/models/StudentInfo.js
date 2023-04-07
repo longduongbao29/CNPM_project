@@ -31,6 +31,6 @@ const studentInfoSchema = new Schema({
     }
 }, { timestamps: true })
 
-const StudentInfo = mongoose.model('Student_Info', studentInfoSchema, 'student_info')
+const StudentInfo = mongoose.model('Student_Info', studentInfoSchema, 'student_infos')
 
 module.exports = StudentInfo
