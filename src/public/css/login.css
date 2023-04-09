@@ -11,14 +11,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("https://wallpapercave.com/wp/wp4676582.jpg");
+  background: #f2f2f2;
+  overflow: scroll
+  /* background-image: url("https://wallpapercave.com/wp/wp4676582.jpg");
   background-repeat: no-repeat;
-  background-size: cover; }
-
+  background-size: cover;  */
+}
 .container {
   position: relative;
-  max-width: 430px;
-  width: 150%;
+  width: 100%;
   background: rgba(255, 255, 255, 0);
   border-radius: 10px;
   overflow: hidden;
@@ -46,16 +47,39 @@ body {
 .container .forms {
   display: flex;
   align-items: center;
-  height: 440px;
-  width: 200%;
+  background: #ffffff68; 
+  height: 100%;
+  width: 100%;
   transition: height 0.2s ease; }
 
-.container .form {
-  border-radius: 10px;
-  width: 40%;
-  padding: 30px;
+.container .forms .banner {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  background-image: url("https://courses.uet.vnu.edu.vn/loginform/images/UET-Banner.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container .forms .form {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  vertical-align: center;
+  align-items: center;
+  display: inline-block;
+  width: 50%;
+  left: 50%;
+  height: 100%;
+  padding-top: 20%;
+  padding-bottom:20%;
   background-color: #ffffffb2;
   transition: margin-left 0.18s ease; }
+
+  .container .forms .form > *{
+    margin-left: 5%;
+    margin-right: 5%;
+    align-self: center;
+  }
 
 .container.active .login {
   margin-left: -50%;
@@ -75,6 +99,10 @@ body {
 
 .container .form .title {
   position: relative;
+  display: table;
+  font-family: sans-serif;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 27px;
   font-weight: 600; }
 
@@ -82,9 +110,9 @@ body {
   content: '';
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -5px;
   height: 3px;
-  width: 30px;
+  width: 100%;
   background-color: #4070f4;
   border-radius: 25px; }
 
