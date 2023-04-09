@@ -58,6 +58,13 @@ class SiteController {
 
     }
 
+    async profile(req, res) {
+        let id = req.session.userID
+        let studentInfo = await StudentInfo.find({studentID: id})
+        console.log(studentInfo)
+        res.render('profile', {studentInfo})
+    }
+
     async timetable(req, res) {
         let id = req.session.userID
         let courses

@@ -14,6 +14,7 @@ router.get('/completed-courses', AuthController.loginRequired, siteController.co
 router.get('/courses-in-progress', AuthController.loginRequired, siteController.courses_in_progress)
 router.get('/admin', authenticate, siteController.admin)
 router.get('/timetable', AuthController.loginRequired, siteController.timetable)
+router.get('/profile', AuthController.loginRequired, siteController.profile)
 
 
 module.exports = router
