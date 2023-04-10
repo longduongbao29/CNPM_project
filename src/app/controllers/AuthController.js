@@ -38,7 +38,7 @@ const login = async (req, res, next) => {
                     req.session.accountID = user.studentID // Tạo session mới - phiên đăng nhập
                     req.session.save() // Lưu phiên đăng nhập
 
-                    return res.redirect('/home')
+                    return res.redirect('/')
 
 
                 } else {

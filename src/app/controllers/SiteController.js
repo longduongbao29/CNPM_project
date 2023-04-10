@@ -97,6 +97,11 @@ class SiteController {
         })
         res.render('profile', { student })
     }
+
+    async wrapper(req, res) {
+        res.render('wrapper')
+    }
+
 }
 
 module.exports = new SiteController
