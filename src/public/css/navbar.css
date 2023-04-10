@@ -1,0 +1,159 @@
+
+p {
+    font-family: Roboto, Arial;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  nav {
+    width: 110px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 10px;
+    background-color: white;
+  }
+  
+  button {
+    background-color: white;
+    border: none;
+  }
+  
+  #dropdown {
+    position: absolute;
+    display: inline-block;
+  }
+  
+  .sidebar-content {
+    left: 0;
+    bottom: 0;
+    top: 55px;
+    background-color: white;
+    width: 72px;
+    z-index: 200;
+    padding-top: 5px;
+  }
+  
+  .sidebar-button {
+    width: 120px;
+    border-radius: 20px;
+  }
+  
+  .sidebar-button:hover {
+    color: white;
+    width: 120px;
+    height: 70px;
+    margin-bottom: 4px;
+    box-shadow: 0 11px 11px #7fcef8;
+    background: linear-gradient(135deg, rgba(255, 0, 254, 1) 0%, rgba(0, 255, 252, 1) 58%);
+    border-radius: 15px;
+  
+  }
+  .sidebar-link {
+    width: 100px;
+    height: 74px;
+    display: flex;
+    padding-left: 4.5px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .sidebar-link img {
+    width: 48px;
+    margin-bottom: 4px;
+  }
+  
+  .sidebar-link div {
+    font-family: Roboto, Arial;
+    font-size: 10px;
+  }
+  
+  .sidebar-label {
+    background-color: transparent;
+    font-weight: 800;
+  }
+  
+  .my-uet-logo {
+    z-index: 1000;
+  }
+  
+  .my-uet-logo img {
+    background: transparent;
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+    padding: 0%;
+  }
+  
+  .my-uet-logo:hover {
+    border-color: linear-gradient(135deg, rgba(255, 0, 254, 1) 0%, rgba(0, 255, 252, 1) 58%);
+    opacity: 0.6;
+  }
+  
+  .my-uet-logo:active {
+    opacity: 0.6;
+  }
+  
+  #booksvg {
+    height: 41px;
+  }
+  
+  #resultpng {
+    margin-left: 7px;
+    width: 40px;
+    height: 30px;
+    margin-bottom: 5px;
+  }
+  
+  
+  #sidebar {
+    background-color: transparent;
+    margin-top: 0px;
+    z-index: 1000;
+    width: 110px;
+    position: relative;
+    animation-name: moveDown;
+    transition-timing-function: ease-in;
+    animation-duration: 2s;
+  }
+  
+  @keyframes moveDown {
+    0% {
+      top: -300px;
+      opacity: 0
+    }
+  
+    ;
+  
+    25% {
+      top: -300px;
+      opacity: 0
+    }
+  
+    ;
+  
+    50% {
+      top: 0px;
+      opacity: 0
+    }
+  
+    ;
+  
+    75% {
+      bottom: 250px;
+      opacity: 0.7
+    }
+  
+    ;
+  
+    100% {
+      bottom: 1000px;
+      opacity: 1
+    }
+  
+    ;
+  }
+  
+  .show {
+    display: none;
+  }

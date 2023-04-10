@@ -73,6 +73,13 @@ body {
 
 .container .form .title {
   position: relative;
+<<<<<<< HEAD
+=======
+  font-family: sans-serif; 
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+>>>>>>> 3e9566d (change login page, profile, immplement side navbar)
   font-size: 27px;
   font-weight: 600; }
 
