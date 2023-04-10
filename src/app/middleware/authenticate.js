@@ -4,13 +4,12 @@ const authenticate = (req, res, next) => {
     try {
         const token = req.cookies.jwt
         const decode = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
-        console.log(decode);
-
-        if (decode.role == 'admin')
+        console.log(decode)
+        if (decode.name == 'admin')
             next()
         else {
             res.json({
-                message: "You do not have permission to access"
+                message: 'You dont have access to this page'
             })
         }
     }

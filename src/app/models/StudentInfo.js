@@ -5,7 +5,7 @@ const studentInfoSchema = new Schema({
     studentID: {
         type: String
     },
-    student_name: {
+    name: {
         type: String
     },
     course_class: {

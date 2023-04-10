@@ -5,10 +5,10 @@ const courseInfoSchema = new Schema({
     course_ID: {
         type: String
     },
-    course_name: {
+    name: {
         type: String
     },
-    course_credits: {
+    credits: {
         type: Number
     },
     num_of_lessons: {

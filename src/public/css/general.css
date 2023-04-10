@@ -1,0 +1,16 @@
+p {
+  font-family: Roboto, Arial;
+  margin-top: 0;
+  margin-bottom: 0; }
+
+nav {
+  margin: 0;
+  width: 110px;
+  padding-top: 20px;
+  padding-left: 0px;
+  padding-right: 10px;
+  background-color: white; }
+
+button {
+  background-color: white;
+  border: none; }

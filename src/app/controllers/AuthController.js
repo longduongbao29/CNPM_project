@@ -1,47 +1,67 @@
 const bcrypt = require('bcryptjs') //Mã hóa mật khẩu lên database
 const jwt = require('jsonwebtoken') //Token bảo vệ route 
-const { response } = require("express")
 const { User } = require("../models/Models")
-
-
-const login = (req, res, next) => {
-    var id = req.body.studentID
+const { Admin } = require("../models/Models")
+const login = async (req, res, next) => {
+    var username = req.body.username
     var password = req.body.password
 
-    //Tìm MSSV trên database
-    User.findOne({ studentID: id })
-        .then(user => {
-            if (user) {
-                bcrypt.compare(password, user.password, function (err, result) { // Giải mã và kiểm tra mật khẩu 
-                    if (result) {
-                        let token = jwt.sign({ name: user.name, role: user.role }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME })
-                        let refreshtoken = jwt.sign({ name: user.name, role: user.role }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRE_TIME })
-                        res.cookie('jwt', token, { httpOnly: true, secure: true });
+    //Check admin account
+    let admin = await Admin.findOne({ username: username })
 
-                        req.session.userID = user.studentID // Tạo session mới - phiên đăng nhập
-                        req.session.save() // Lưu phiên đăng nhập
-                        return res.redirect('/home')
-
-
-                    } else {
-                        req.flash('message', 'Mật khẩu sai!')
-                        return res.redirect('/login-page')
-
-
-                    }
-                })
-            }
-            else {
-                req.flash('message', 'Không tìm thấy mã sinh viên!')
+    if (admin) {
+        bcrypt.compare(password, admin.password, function (err, result) {
+            if (result) {
+                let token = jwt.sign({ name: admin.username }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME })
+                let refreshtoken = jwt.sign({ name: admin.username }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRE_TIME })
+                res.cookie('jwt', token, { httpOnly: true, secure: true })
+                req.session.accountID = admin.username // Tạo session mới - phiên đăng nhập
+                req.session.save() // Lưu phiên đăng nhập
+                return res.redirect('/admin-home')
+            } else {
+                req.flash('message', 'Mật khẩu sai!')
                 return res.redirect('/login-page')
-
             }
-
         })
+    }
+    else {
+
+        // Tìm MSSV trên database
+        let user = await User.findOne({ studentID: username })
+
+        if (user) {
+            bcrypt.compare(password, user.password, function (err, result) { // Giải mã và kiểm tra mật khẩu 
+                if (result) {
+                    let token = jwt.sign({ name: user.studentID }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME })
+                    let refreshtoken = jwt.sign({ name: user.studentID }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRE_TIME })
+                    res.cookie('jwt', token, { httpOnly: true, secure: true })
+                    req.session.accountID = user.studentID // Tạo session mới - phiên đăng nhập
+                    req.session.save() // Lưu phiên đăng nhập
+
+                    return res.redirect('/home')
+
+
+                } else {
+                    req.flash('message', 'Mật khẩu sai!')
+                    return res.redirect('/login-page')
+
+
+                }
+            })
+        }
+        else {
+            req.flash('message', 'Không tìm thấy tài khoản!')
+            return res.redirect('/login-page')
+
+        }
+
+
+    }
 
 }
 const logout = (req, res) => {
-    delete req.session.userID // Xóa session
+
+    delete req.session.accountID// Xóa session
     req.flash('logout', 'Đăng xuất thành công!')
     res.redirect('/')
 
@@ -66,13 +86,11 @@ const refreshToken = (req, res, next) => {
     })
 }
 const loginRequired = (req, res, next) => {
-    if (!req.session || !req.session.userID) {
+
+    if (!req.session || !req.session.accountID) {
         return res.redirect('/login-page')
-        return res.json({
-            message: 'You must be logged in'
-        })
     }
-    req.user = User.findById(req.session.userID)
+    req.user = User.findById(req.session.accountID)
     if (!req.user) {
         return res.json({ message: 'User userID no longer exsist' })
     }

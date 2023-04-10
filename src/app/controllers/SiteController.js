@@ -3,7 +3,7 @@ const { Completed_Courses } = require('../models/Models')
 const { CoursesInProgress } = require('../models/Models')
 class SiteController {
     async home(req, res) {
-        let id = req.session.userID
+        let id = req.session.accountID
         let student
         // await StudentInfo.findOne({ studentID: id }).then(student_ => {
         //     student = student_.toObject()
@@ -13,7 +13,7 @@ class SiteController {
 
     async attendance(req, res, next) {
 
-        let id = req.session.userID
+        let id = req.session.accountID
         let courses
         await CoursesInProgress.find({ studentID: id }).populate('course').then((courses_) => {
             courses = courses_.map(course => course.toObject())
@@ -27,7 +27,7 @@ class SiteController {
     }
 
     async courses_in_progress(req, res, next) {
-        let id = req.session.userID
+        let id = req.session.accountID
         let courses
         await CoursesInProgress.find({ studentID: id }).populate('course').then((courses_) => {
             courses = courses_.map(course => course.toObject())
@@ -36,7 +36,7 @@ class SiteController {
         res.render('courses_in_progress', { courses })
     }
     async completed_courses(req, res, next) {
-        let id = req.session.userID
+        let id = req.session.accountID
         let courses
         let sumMark = 0, creditsCount = 0, GPA
         await Completed_Courses.find({ studentID: id }).populate('course').populate('course').then((courses_) => {
@@ -53,13 +53,10 @@ class SiteController {
         res.render('completed_courses', { courses, GPA, creditsCount })
     }
 
-    admin(req, res) {
-        res.render('admin')
 
-    }
 
     async timetable(req, res) {
-        let id = req.session.userID
+        let id = req.session.accountID
         let courses
         await CoursesInProgress.find({ studentID: id }).populate('course').then((courses_) => {
             courses = courses_.map(course => course.toObject())
@@ -89,6 +86,16 @@ class SiteController {
         }
 
         res.render('timetable', { array })
+    }
+
+    async profile(req, res) {
+        let id = req.session.accountID
+        let student
+        await StudentInfo.find({ studentID: id }).then((student_) => {
+            student = student_.map(student => student.toObject())
+
+        })
+        res.render('profile', { student })
     }
 }
 
