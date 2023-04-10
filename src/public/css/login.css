@@ -28,9 +28,6 @@ body {
 #logoutMessage {
   border-radius: 20px;
   background: #ffffff68;
-  padding: 20px;
-  padding-top: 0px;
-  width: 80%;
   height: 30px; }
 
 .alert.alert-danger {
@@ -99,8 +96,8 @@ body {
 
 .container .form .title {
   position: relative;
+  font-family: sans-serif; 
   display: table;
-  font-family: sans-serif;
   margin-left: auto;
   margin-right: auto;
   font-size: 27px;
@@ -188,6 +185,8 @@ input {
   margin-top: 35px; }
 
 .form .button input {
+  width: 50%;
+  left: 25%;
   border: none;
   color: #fff;
   font-size: 17px;
@@ -196,6 +195,7 @@ input {
   border-radius: 6px;
   background-color: #4070f4;
   cursor: pointer;
+  align-self: center;
   transition: all 0.3s ease; }
 
 .button input:hover {
