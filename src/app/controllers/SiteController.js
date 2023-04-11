@@ -3,12 +3,7 @@ const { Completed_Courses } = require('../models/Models')
 const { CoursesInProgress } = require('../models/Models')
 class SiteController {
     async home(req, res) {
-        let id = req.session.accountID
-        let student
-        // await StudentInfo.findOne({ studentID: id }).then(student_ => {
-        //     student = student_.toObject()
-        // })
-        res.render('home', { student })
+        res.render('home')
     }
 
     async attendance(req, res, next) {
@@ -99,7 +94,7 @@ class SiteController {
     }
 
     async wrapper(req, res) {
-        res.render('wrapper')
+        res.render('sidebar')
     }
 
 }
