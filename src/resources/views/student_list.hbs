@@ -1,0 +1,48 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <h1 style="text-align:center">Danh sách sinh viên</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Họ và tên</th>
+                <th scope="col">Mã sinh viên</th>
+                <th scope="col">Ngày sinh</th>
+                <th scope="col">Lớp</th>
+                <th scope="col">Số điện thoại</th>
+                <th scope="col">Email</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each student}}
+            <tr>
+                <th scope="row" id="class-code">{{this.name}}</th>
+                <td id="class-name">{{this.studentID}}</td>
+                <td id="birthday">{{this.date_of_birth}}</td>
+                <td id="teacher">{{this.course_class}}</td>
+                <td id="datetime">{{this.phone_number}}</td>
+                <td id="room">{{this.email}}</td>
+
+            </tr>
+            {{/each}}
+
+
+            <!--Thêm các dòng vào từ database-->
+            <!--Kết thúc bảng-->
+        </tbody>
+    </table>
+</body>
+
+</html>

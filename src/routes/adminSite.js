@@ -8,6 +8,7 @@ const AuthController = require('../app/controllers/AuthController')
 
 // Cần yêu cầu đăng nhập mới vào được các trang dưới
 router.get('/admin-home', AuthController.loginRequired, authenticate, adminSiteController.home)
-
-
+router.get('/student-list', AuthController.loginRequired, authenticate, adminSiteController.studentList)
+router.get('/add-student', AuthController.loginRequired, authenticate, adminSiteController.addStudent)
+router.post('/store-student', AuthController.loginRequired, authenticate, adminSiteController.storeStudent)
 module.exports = router

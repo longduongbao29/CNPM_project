@@ -12,7 +12,7 @@ const studentInfoSchema = new Schema({
         type: String
     },
     date_of_birth: {
-        type: Date
+        type: String
     },
     sex: {
         type: String
