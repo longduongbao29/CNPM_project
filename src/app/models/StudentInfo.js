@@ -12,7 +12,7 @@ const studentInfoSchema = new Schema({
         type: String
     },
     date_of_birth: {
-        type: Date
+        type: String
     },
     sex: {
         type: String
@@ -29,7 +29,7 @@ const studentInfoSchema = new Schema({
     image: {
         type: String
     }
-}, { timestamps: true })
+}/*, { timestamps: true } */)
 
 const StudentInfo = mongoose.model('Student_Info', studentInfoSchema, 'student_infos')
 
