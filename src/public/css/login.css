@@ -100,12 +100,15 @@ input {
   position: relative;
   height: 50px;
   width: 100%;
-  margin-top: 30px; }
+  margin-top: 30px;
+  display: inline-block;
+  align-items: center }
 
 .input-field input {
   position: absolute;
   height: 100%;
-  width: 100%;
+  width: 50%;
+  margin-left:25%;
   padding: 0 35px;
   border: none;
   outline: none;
@@ -129,12 +132,13 @@ input {
   color: #4070f4; }
 
 .input-field i.icon {
-  left: 0; }
+  left: 25%; }
 
 .input-field i.showHidePw {
   right: 0;
   cursor: pointer;
-  padding: 10px; }
+  padding: 10px; 
+  margin-right: 25%}
 
 .form .checkbox-text {
   display: flex;
@@ -162,7 +166,8 @@ input {
   text-decoration: underline; }
 
 .form .button {
-  margin-top: 35px; }
+  margin-top: 35px; 
+}
 
 .form .button input {
   width: 50%;
