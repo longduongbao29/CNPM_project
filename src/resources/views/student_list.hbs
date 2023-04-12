@@ -34,7 +34,10 @@
                 <td id="teacher">{{this.course_class}}</td>
                 <td id="datetime">{{this.phone_number}}</td>
                 <td id="room">{{this.email}}</td>
-
+                <td>
+                    <a href="/{{this._id}}/edit-student" class="btn btn-link">Sửa</a> 
+                    <a href="/{{this._id}}" class="btn btn-link">Xóa</a> 
+                </td>
             </tr>
             {{/each}}
 

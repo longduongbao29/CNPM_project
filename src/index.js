@@ -11,6 +11,7 @@ const expressSession = require("express-session")
 const flash = require('connect-flash')
 const expressValidator = require('express-validator')
 const cookieParser = require('cookie-parser');
+const methodOverride = require('method-override')
 const app = express()
 
 mongodb.connectDB()
@@ -32,7 +33,7 @@ app.use(expressSession({
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-
+app.use(methodOverride('_method'))
 
 //Post cua form 
 app.use(express.json())
