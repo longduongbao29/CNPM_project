@@ -11,4 +11,6 @@ router.get('/admin-home', AuthController.loginRequired, authenticate, adminSiteC
 router.get('/student-list', AuthController.loginRequired, authenticate, adminSiteController.studentList)
 router.get('/add-student', AuthController.loginRequired, authenticate, adminSiteController.addStudent)
 router.post('/store-student', AuthController.loginRequired, authenticate, adminSiteController.storeStudent)
+router.get('/:id/edit-student', AuthController.loginRequired, authenticate, adminSiteController.editStudent)
+router.put('/:id', AuthController.loginRequired, authenticate, adminSiteController.updateStudent)
 module.exports = router
