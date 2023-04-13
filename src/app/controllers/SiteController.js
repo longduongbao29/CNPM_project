@@ -100,7 +100,7 @@ class SiteController {
         res.render('profile', { student })
     }
 
-    async wrapper(req, res) {
+    async sidebar(req, res) {
         res.render('sidebar')
     }
 

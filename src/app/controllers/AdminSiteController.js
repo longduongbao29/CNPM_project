@@ -2,8 +2,8 @@ const { StudentInfo } = require('../models/Models')
 const { courses_in_progress } = require('./SiteController')
 
 class AdminSiteController {
-    async home(req, res) {
-        res.render('admin_home')
+    async sidebar(req, res) {
+        res.render('sidebar', { admin: true })
     }
 
     async studentList(req, res, next) {
@@ -25,7 +25,7 @@ class AdminSiteController {
         new_student.save()
         //res.json(req.body)
         //res.send('SAVED')
-        res.redirect('/student-list')
+        res.redirect('/admin')
         //alert('Thêm sinh viên thành công!')
     }
 
@@ -38,7 +38,7 @@ class AdminSiteController {
     }
 
     async updateStudent(req, res, next) {
-        StudentInfo.updateOne({_id: req.params.id}, req.body).then(()=> {
+        StudentInfo.updateOne({ _id: req.params.id }, req.body).then(() => {
             res.redirect('/student-list')
         })
     }

@@ -25,8 +25,38 @@ modeSwitch.addEventListener("click", () => {
 
     }
 });
+//Admin accounts
 
+$(document).ready(function () {
+    $('#admin-accounts').click(function () {
+        $.ajax({
+            url: '/home',
+            method: 'GET',
+            success: function (data) {
+                $('#displayHTML').html(data);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+});
 
+//User accounts
+$(document).ready(function () {
+    $('#admin-courses').click(function () {
+        $.ajax({
+            url: '/home',
+            method: 'GET',
+            success: function (data) {
+                $('#displayHTML').html(data);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+});
 $(document).ready(function () {
     $('#home').click(function () {
         $.ajax({
