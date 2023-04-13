@@ -145,10 +145,6 @@ body.dark .sidebar header .toggle {
 .sidebar .menu {
   margin-top: 40px; }
 
-.sidebar .menu .menu-links {
-  padding: 0
-}
-
 .sidebar li.search-box {
   border-radius: 6px;
   background-color: var(--primary-color-light);
@@ -257,10 +253,11 @@ body.dark .switch::before {
   left: 20px; }
 
 .main_container {
+  font-size: 1em;
   position: absolute;
   top: 0;
   top: 0;
-  left: 300px;
+  left: 250px;
   height: 100vh;
   width: calc(100% - 250px);
   background-color: var(--body-color);
@@ -273,7 +270,7 @@ body.dark .switch::before {
   padding: 12px 60px; }
 
 .sidebar.close ~ .main_container {
-  left: 100px;
+  left: 80px;
   height: 100vh;
   width: calc(100% - 78px); }
 
