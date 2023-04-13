@@ -136,13 +136,16 @@ input {
     height: 50px;
     width: 100%;
     margin-top: 30px;
+    display: inline-block;
+    align-items: center
 }
 
 .input-field input {
     position: absolute;
     height: 100%;
-    width: 100%;
-    padding: 0 35px;
+    width: 50%;
+    margin-left: 25%;
+    padding: 0 15px 0 35px;
     border: none;
     outline: none;
     font-size: 16px;
@@ -169,13 +172,14 @@ input {
 }
 
 .input-field i.icon {
-    left: 0;
+    left: 25%;
 }
 
 .input-field i.showHidePw {
     right: 0;
     cursor: pointer;
     padding: 10px;
+    margin-right: 25%
 }
 
 .form .checkbox-text {

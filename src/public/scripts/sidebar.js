@@ -18,13 +18,23 @@ searchBtn.addEventListener("click", () => {
 modeSwitch.addEventListener("click", () => {
     body.classList.toggle("dark");
 
+    var logo = document.getElementById("logo");
+    if (logo.src.match("/img/logowhite.png")) {
+        logo.src = "/img/logo.png";
+    } else {
+        logo.src = "/img/logowhite.png";
+    }
+
     if (body.classList.contains("dark")) {
         modeText.innerText = "Light mode";
     } else {
         modeText.innerText = "Dark mode";
 
     }
+
+   
 });
+
 //Admin accounts
 
 $(document).ready(function () {
