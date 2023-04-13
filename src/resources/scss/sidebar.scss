@@ -324,3 +324,7 @@ body.dark .switch::before {
 body.dark .main_container .text {
     color: var(--text-color);
 }
+
+.sidebar .menu .menu-links {
+    padding: 0
+}
