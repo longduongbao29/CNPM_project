@@ -145,10 +145,6 @@ body.dark .sidebar header .toggle {
 .sidebar .menu {
   margin-top: 40px; }
 
-.sidebar .menu .menu-links {
-  padding: 0
-}
-
 .sidebar li.search-box {
   border-radius: 6px;
   background-color: var(--primary-color-light);
