@@ -12,11 +12,8 @@ body {
   align-items: center;
   justify-content: center;
   background: #f2f2f2;
-  overflow: scroll
-  /* background-image: url("https://wallpapercave.com/wp/wp4676582.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;  */
-}
+  overflow: scroll; }
+
 .container {
   position: relative;
   width: 100%;
@@ -44,7 +41,7 @@ body {
 .container .forms {
   display: flex;
   align-items: center;
-  background: #ffffff68; 
+  background: #ffffff68;
   height: 100%;
   width: 100%;
   transition: height 0.2s ease; }
@@ -55,8 +52,7 @@ body {
   height: 100%;
   background-image: url("https://courses.uet.vnu.edu.vn/loginform/images/UET-Banner.png");
   background-size: cover;
-  background-repeat: no-repeat;
-}
+  background-repeat: no-repeat; }
 
 .container .forms .form {
   border-top-right-radius: 10px;
@@ -68,15 +64,14 @@ body {
   left: 50%;
   height: 100%;
   padding-top: 20%;
-  padding-bottom:20%;
+  padding-bottom: 20%;
   background-color: #ffffffb2;
   transition: margin-left 0.18s ease; }
 
-  .container .forms .form > *{
-    margin-left: 5%;
-    margin-right: 5%;
-    align-self: center;
-  }
+.container .forms .form > * {
+  margin-left: 5%;
+  margin-right: 5%;
+  align-self: center; }
 
 .container.active .login {
   margin-left: -50%;
@@ -96,7 +91,7 @@ body {
 
 .container .form .title {
   position: relative;
-  font-family: sans-serif; 
+  font-family: sans-serif;
   display: table;
   margin-left: auto;
   margin-right: auto;
@@ -122,14 +117,14 @@ input {
   width: 100%;
   margin-top: 30px;
   display: inline-block;
-  align-items: center }
+  align-items: center; }
 
 .input-field input {
   position: absolute;
   height: 100%;
   width: 50%;
-  margin-left:25%;
-  padding: 0 35px;
+  margin-left: 25%;
+  padding: 0 15px 0 35px;
   border: none;
   outline: none;
   font-size: 16px;
@@ -157,8 +152,8 @@ input {
 .input-field i.showHidePw {
   right: 0;
   cursor: pointer;
-  padding: 10px; 
-  margin-right: 25%}
+  padding: 10px;
+  margin-right: 25%; }
 
 .form .checkbox-text {
   display: flex;
@@ -186,8 +181,7 @@ input {
   text-decoration: underline; }
 
 .form .button {
-  margin-top: 35px; 
-}
+  margin-top: 35px; }
 
 .form .button input {
   width: 50%;
