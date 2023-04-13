@@ -4,40 +4,98 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+
+    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/table.css">
+
+    <meta name="robots" content="noindex, follow">
+    <script
+        nonce="7fe0b1a4-f47f-4ea6-9aa1-e8dc2cfcea9b">(function (w, d) { !function (bv, bw, bx, by) { bv[bx] = bv[bx] || {}; bv[bx].executed = []; bv.zaraz = { deferred: [], listeners: [] }; bv.zaraz.q = []; bv.zaraz._f = function (bz) { return function () { var bA = Array.prototype.slice.call(arguments); bv.zaraz.q.push({ m: bz, a: bA }) } }; for (const bB of ["track", "set", "debug"]) bv.zaraz[bB] = bv.zaraz._f(bB); bv.zaraz.init = () => { var bC = bw.getElementsByTagName(by)[0], bD = bw.createElement(by), bE = bw.getElementsByTagName("title")[0]; bE && (bv[bx].t = bw.getElementsByTagName("title")[0].text); bv[bx].x = Math.random(); bv[bx].w = bv.screen.width; bv[bx].h = bv.screen.height; bv[bx].j = bv.innerHeight; bv[bx].e = bv.innerWidth; bv[bx].l = bv.location.href; bv[bx].r = bw.referrer; bv[bx].k = bv.screen.colorDepth; bv[bx].n = bw.characterSet; bv[bx].o = (new Date).getTimezoneOffset(); if (bv.dataLayer) for (const bI of Object.entries(Object.entries(dataLayer).reduce(((bJ, bK) => ({ ...bJ[1], ...bK[1] }))))) zaraz.set(bI[0], bI[1], { scope: "page" }); bv[bx].q = []; for (; bv.zaraz.q.length;) { const bL = bv.zaraz.q.shift(); bv[bx].q.push(bL) } bD.defer = !0; for (const bM of [localStorage, sessionStorage]) Object.keys(bM || {}).filter((bO => bO.startsWith("_zaraz_"))).forEach((bN => { try { bv[bx]["z_" + bN.slice(7)] = JSON.parse(bM.getItem(bN)) } catch { bv[bx]["z_" + bN.slice(7)] = bM.getItem(bN) } })); bD.referrerPolicy = "origin"; bD.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(bv[bx]))); bC.parentNode.insertBefore(bD, bC) };["complete", "interactive"].includes(bw.readyState) ? zaraz.init() : bv.addEventListener("DOMContentLoaded", zaraz.init) }(w, d, "zarazData", "script"); })(window, document);</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 
 <body>
 
-    <h1 style="text-align:center">Lịch sử điểm danh</h1>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Mã lớp học</th>
-                <th scope="col">Tên lớp học</th>
-                <th scope="col">Điểm danh</th>
+    <h1 style="font-family: Lato-Bold;text-align:center;color: #4272d7">Lịch sử điểm danh</h1>
+    <div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100 ver1 m-b-110">
+                    <div class="table100-head">
+                        <table>
+                            <thead>
+                                <tr class="row100 head">
+                                    <th class="cell100 column1">Mã lớp học</th>
+                                    <th class="cell100 column2">Tên lớp học</th>
+                                    <th class="cell100 column3">Điểm danh</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="table100-body js-pscroll">
+                        <table>
+                            <tbody>
+                                {{#each courses}}
+                                {{#unless this.finished}}
+                                <tr class="row100 body">
+                                    <td class="cell100 column1">{{this.course.course_ID}}</td>
+                                    <td class="cell100 column2">{{this.course.course_name}}</td>
+                                    <td class="cell100 column3">{{this.attendance_check}}/16</td>
+                                </tr>
+                                {{/unless}}
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 
-            </tr>
-        </thead>
-        <tbody>
-            {{#each courses}}
-            {{#unless this.finished}}
-            <tr>
-                <th scope="row" id="class-code"><!--Thêm classCode/mã lớp học-->{{this.course.course_ID}}</th>
-                <td id="class-name"><!--Thêm className/tên lớp học-->{{this.course.course_name}}</td>
-                <td id="attendance-count"><!--Thêm attendance-count/số lần điểm danh-->{{this.attendance_check}}/16
-                </td>
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-            </tr>
-            {{/unless}}
-            {{/each}}
+    <script src="vendor/select2/select2.min.js"></script>
 
-            <!--Thêm các dòng vào từ database-->
-            <!--Kết thúc bảng-->
-        </tbody>
-    </table>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script>
+        $('.js-pscroll').each(function () {
+            var ps = new PerfectScrollbar(this);
 
+            $(window).on('resize', function () {
+                ps.update();
+            })
+        });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+
+    <script src="/scripts/table.js"></script>
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/v2b4487d741ca48dcbadcaf954e159fc61680799950996"
+        integrity="sha512-D/jdE0CypeVxFadTejKGTzmwyV10c1pxZk/AqjJuZbaJwGMyNHY3q/mTPWqMUnFACfCTunhZUVcd4cV78dK1pQ=="
+        data-cf-beacon='{"rayId":"7b6bd136cb3191ab","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.3.0","si":100}'
+        crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
