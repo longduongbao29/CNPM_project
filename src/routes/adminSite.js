@@ -13,4 +13,5 @@ router.get('/add-student', AuthController.loginRequired, authenticate, adminSite
 router.post('/store-student', AuthController.loginRequired, authenticate, adminSiteController.storeStudent)
 router.get('/:id/edit-student', AuthController.loginRequired, authenticate, adminSiteController.editStudent)
 router.put('/:id', AuthController.loginRequired, authenticate, adminSiteController.updateStudent)
+router.delete('/:id', AuthController.loginRequired, authenticate, adminSiteController.deleteStudent)
 module.exports = router
