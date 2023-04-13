@@ -30,11 +30,14 @@
             <tr>
                 <th scope="row" id="class-code">{{this.name}}</th>
                 <td id="class-name">{{this.studentID}}</td>
-                <td id="birthday">{{this.date_of_birth}}</td>
+                <td id="credits">{{this.date_of_birth}}</td>
                 <td id="teacher">{{this.course_class}}</td>
                 <td id="datetime">{{this.phone_number}}</td>
                 <td id="room">{{this.email}}</td>
-
+                <td>
+                    <a href="/{{this._id}}/edit-student" class="btn btn-link">Sửa</a> 
+                    <a href="/{{this._id}}" class="btn btn-link">Xóa</a> 
+                </td>
             </tr>
             {{/each}}
 

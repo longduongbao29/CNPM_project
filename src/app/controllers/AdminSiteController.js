@@ -24,7 +24,23 @@ class AdminSiteController {
         const new_student = new StudentInfo(data)
         new_student.save()
         //res.json(req.body)
-        res.send('SAVED')
+        //res.send('SAVED')
+        res.redirect('/add-student')
+        //alert('Thêm sinh viên thành công!')
+    }
+
+    async editStudent(req, res, next) {
+        let student
+        await StudentInfo.findById(req.params.id).then((student_) => {
+            student = student_.toObject()
+        })
+        res.render('edit_student', { student })
+    }
+
+    async updateStudent(req, res, next) {
+        StudentInfo.updateOne({_id: req.params.id}, req.body).then(()=> {
+            res.redirect('/student-list')
+        })
     }
 }
 
