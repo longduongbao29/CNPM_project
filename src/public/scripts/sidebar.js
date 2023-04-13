@@ -147,6 +147,21 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $('#logo').click(function () {
+        $.ajax({
+            url: '/home',
+            method: 'GET',
+            success: function (data) {
+                $('#displayHTML').html(data);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+});
+
 
 $(document).ready(function () {
     $("#displayHTML").load("home");
