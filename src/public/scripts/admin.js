@@ -14,15 +14,5 @@ $(document).ready(function () {
 });
 
 $(document).on('click', '#admin-add-student', function () {
-    // Xử lý sự kiện click ở đây
-    $.ajax({
-        url: '/add-student',
-        method: 'GET',
-        success: function (data) {
-            document.getElementById('displayHTML').innerHTML = data;
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    });
+    $("#displayHTML").load("add-student");
 });
