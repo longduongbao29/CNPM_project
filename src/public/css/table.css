@@ -119,7 +119,6 @@ iframe {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   padding: 33px 30px; }
@@ -392,3 +391,9 @@ td {
 
 .table100.ver5 .ps__rail-y .ps__thumb-y::before {
   background-color: #ccc; }
+
+.credits {
+  margin-top: -90px;
+  position: relative;
+  float: right;
+  margin-right: 30px; }
