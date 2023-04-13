@@ -30,19 +30,22 @@
         .column3 {
             width: 10%
         }
+
         .column4 {
             width: 10%
         }
+
         .column5 {
             width: 10%
         }
+
         .column6 {
             width: 10%
         }
-        .b{
+
+        .b {
             font-family: sans-serif;
         }
-
     </style>
 
     <meta name="robots" content="noindex, follow">
@@ -56,8 +59,7 @@
 <body>
 
     <h1 style="font-family: Lato-Bold;text-align:center;color: #4272d7">Kết quả học tập</h1>
-    <p style="font-family: Lato-Regular;">Tổng số tín chỉ: {{creditsCount}}</p>
-    <p style="font-family: Lato-Regular;">GPA: {{toFixed GPA 2}}</p>
+
     <div class="limiter">
         <div class="container-table100">
             <div class="wrap-table100">
@@ -91,12 +93,21 @@
                                 </tr>
                                 {{/unless}}
                                 {{/each}}
+
                             </tbody>
                         </table>
+
                     </div>
+
+                </div>
+                <div class="credits gpa" style="font-family: Lato-Bold;text-align:center;color: #ff0000">
+                    <p>Tổng số tín chỉ: {{creditsCount}}</p>
+                    <p>GPA: {{toFixed GPA 2}}</p>
                 </div>
             </div>
         </div>
+
+
     </div>
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 

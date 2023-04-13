@@ -4,7 +4,7 @@ const authenticate = (req, res, next) => {
     try {
         const token = req.cookies.jwt
         const decode = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
-        console.log(decode)
+        // Only admin accounts have permission 
         if (decode.name == 'admin')
             next()
         else {

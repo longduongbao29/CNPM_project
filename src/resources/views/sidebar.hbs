@@ -23,11 +23,15 @@
             <div class="image-text">
                 <span class="image">
                     <a id="logo" href="#">
-                               <img src="/img/logo.png" alt="">
+                        <img src="/img/logo.png" alt="">
                     </a>
                 </span>
                 <div class="text logo-text">
-                    <span class="name">My UET</span>
+                    {{#if admin}}
+                    <span class="admin-name">MyUET Admin</span>
+                    {{else}}
+                    <span class="name">MyUET</span>
+                    {{/if }}
                     <span class="profession"></span>
                 </div>
             </div>
@@ -39,11 +43,30 @@
             <div class="menu">
 
                 <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
+
                 </li>
 
                 <ul class="menu-links">
+                    {{#if admin}}
+                    <li class="nav-link">
+                        <a id="admin-accounts" href="#">
+                            <i class='bx bxs-book icon'></i>
+                            <span class="text nav-text">Tài khoản</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a id="admin-students" href="#">
+                            <i class='bx bxs-home icon'></i>
+                            <span class="text nav-text">Sinh viên</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a id="admin-courses" href="#">
+                            <i class='bx bxs-book icon'></i>
+                            <span class="text nav-text">Khóa học</span>
+                        </a>
+                    </li>
+                    {{else}}
                     <li class="nav-link">
                         <a id="home" href="#">
                             <i class='bx bxs-home icon'></i>
@@ -91,7 +114,7 @@
                             <span class="text nav-text">Chương trình đào tạo</span>
                         </a>
                     </li>
-
+                    {{/if}}
                 </ul>
             </div>
 
@@ -123,8 +146,14 @@
     <section class="main_container">
         <div id="displayHTML"></div>
     </section>
+    <style>
+        .nav-link {
+            padding: 0px;
+        }
+    </style>
 
 
+    <script src="/scripts/admin.js"></script>
     <script src="/scripts/sidebar.js"></script>
 
 </body>

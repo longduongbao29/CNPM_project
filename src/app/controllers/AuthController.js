@@ -12,12 +12,12 @@ const login = async (req, res, next) => {
     if (admin) {
         bcrypt.compare(password, admin.password, function (err, result) {
             if (result) {
-                let token = jwt.sign({ name: admin.username }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME })
-                let refreshtoken = jwt.sign({ name: admin.username }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRE_TIME })
+                let token = jwt.sign({ name: "admin" }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME })
+                let refreshtoken = jwt.sign({ name: "admin" }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRE_TIME })
                 res.cookie('jwt', token, { httpOnly: true, secure: true })
                 req.session.accountID = admin.username // Tạo session mới - phiên đăng nhập
                 req.session.save() // Lưu phiên đăng nhập
-                return res.redirect('/admin-home')
+                return res.redirect('/admin')
             } else {
                 req.flash('message', 'Mật khẩu sai!')
                 return res.redirect('/login-page')
@@ -32,8 +32,8 @@ const login = async (req, res, next) => {
         if (user) {
             bcrypt.compare(password, user.password, function (err, result) { // Giải mã và kiểm tra mật khẩu 
                 if (result) {
-                    let token = jwt.sign({ name: user.studentID }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME })
-                    let refreshtoken = jwt.sign({ name: user.studentID }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRE_TIME })
+                    let token = jwt.sign({ name: "user" }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRE_TIME })
+                    let refreshtoken = jwt.sign({ name: "user" }, process.env.REFRESH_TOKEN_SECRET, { expiresIn: process.env.REFRESH_TOKEN_EXPIRE_TIME })
                     res.cookie('jwt', token, { httpOnly: true, secure: true })
                     req.session.accountID = user.studentID // Tạo session mới - phiên đăng nhập
                     req.session.save() // Lưu phiên đăng nhập
