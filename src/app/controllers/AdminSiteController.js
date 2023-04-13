@@ -25,7 +25,7 @@ class AdminSiteController {
         new_student.save()
         //res.json(req.body)
         //res.send('SAVED')
-        res.redirect('/add-student')
+        res.redirect('/student-list')
         //alert('Thêm sinh viên thành công!')
     }
 
