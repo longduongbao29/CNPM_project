@@ -298,10 +298,11 @@ body.dark .switch::before {
 }
 
 .main_container {
+    font-size: 1em; 
     position: absolute;
     top: 0;
     top: 0;
-    left: 300px;
+    left: 250px;
     height: 100vh;
     width: calc(100% - 250px);
     background-color: var(--body-color);
@@ -316,7 +317,7 @@ body.dark .switch::before {
 }
 
 .sidebar.close~.main_container {
-    left: 100px;
+    left: 80px;
     height: 100vh;
     width: calc(100% - 78px);
 }
