@@ -154,7 +154,11 @@ body.dark .sidebar header .toggle {
   transform: translateY(-50%) rotate(0deg); }
 
 .sidebar .menu {
+<<<<<<< HEAD
   margin-top: 10px; }
+=======
+  margin-top: 40px; }
+>>>>>>> deb1c97 (minor changes)
 
 .sidebar li.search-box {
   border-radius: 6px;

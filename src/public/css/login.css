@@ -11,15 +11,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   background: #f2f2f2;
   background-image: linear-gradient(to right, #003a55, #75c3ff);
+=======
+  background-image: url("https://wallpapercave.com/wp/wp4676582.jpg");
+>>>>>>> deb1c97 (minor changes)
   background-repeat: no-repeat;
   background-size: cover; }
 
 .container {
   transform: scale(0.95);
   position: relative;
-  width: 100%;
+  max-width: 430px;
+  width: 150%;
   background: rgba(255, 255, 255, 0);
   border-radius: 10px;
   overflow: hidden;
@@ -28,6 +33,9 @@ body {
 #logoutMessage {
   border-radius: 20px;
   background: #ffffff68;
+  padding: 20px;
+  padding-top: 0px;
+  width: 80%;
   height: 30px; }
 
 .alert.alert-danger {
@@ -44,6 +52,7 @@ body {
 .container .forms {
   display: flex;
   align-items: center;
+<<<<<<< HEAD
 <<<<<<< HEAD
   height: 440px;
   width: 200%;
@@ -90,6 +99,19 @@ body {
   align-self: center; }
 
 >>>>>>> 7f53d78 (fix double eyeslash password)
+=======
+  height: 440px;
+  width: 200%;
+  transition: height 0.2s ease; }
+
+.container .form {
+  border-radius: 10px;
+  width: 40%;
+  padding: 30px;
+  background-color: #ffffffb2;
+  transition: margin-left 0.18s ease; }
+
+>>>>>>> deb1c97 (minor changes)
 .container.active .login {
   margin-left: -50%;
   opacity: 0;
@@ -110,6 +132,7 @@ body {
   position: relative;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   font-family: sans-serif; 
 =======
@@ -119,6 +142,8 @@ body {
   margin-left: auto;
   margin-right: auto;
 >>>>>>> 3e9566d (change login page, profile, immplement side navbar)
+=======
+>>>>>>> deb1c97 (minor changes)
   font-size: 27px;
   font-weight: 600; }
 
@@ -126,9 +151,9 @@ body {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -5px;
+  bottom: 0;
   height: 3px;
-  width: 100%;
+  width: 30px;
   background-color: #4070f4;
   border-radius: 25px; }
 
@@ -139,16 +164,25 @@ input {
   position: relative;
   height: 50px;
   width: 100%;
+<<<<<<< HEAD
   margin-top: 30px;
   display: inline-block;
   align-items: center; }
+=======
+  margin-top: 30px; }
+>>>>>>> deb1c97 (minor changes)
 
 .input-field input {
   position: absolute;
   height: 100%;
+<<<<<<< HEAD
   width: 50%;
   margin-left: 25%;
   padding: 0 15px 0 35px;
+=======
+  width: 100%;
+  padding: 0 35px;
+>>>>>>> deb1c97 (minor changes)
   border: none;
   outline: none;
   font-size: 16px;
@@ -171,13 +205,17 @@ input {
   color: #4070f4; }
 
 .input-field i.icon {
-  left: 25%; }
+  left: 0; }
 
 .input-field i.showHidePw {
   right: 0;
   cursor: pointer;
+<<<<<<< HEAD
   padding: 10px;
   margin-right: 25%; }
+=======
+  padding: 10px; }
+>>>>>>> deb1c97 (minor changes)
 
 .form .checkbox-text {
   display: flex;
@@ -208,8 +246,6 @@ input {
   margin-top: 35px; }
 
 .form .button input {
-  width: 50%;
-  left: 25%;
   border: none;
   color: #fff;
   font-size: 17px;
@@ -218,7 +254,6 @@ input {
   border-radius: 6px;
   background-color: #4070f4;
   cursor: pointer;
-  align-self: center;
   transition: all 0.3s ease; }
 
 .button input:hover {
