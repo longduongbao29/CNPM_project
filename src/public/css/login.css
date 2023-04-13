@@ -7,14 +7,17 @@
   font-family: 'Poppins', sans-serif; }
 
 body {
-  height: 100vh;
+  height: 95vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #f2f2f2;
-  overflow: scroll; }
+  background-image: linear-gradient(to right, #003a55, #75c3ff);
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 .container {
+  transform: scale(0.95);
   position: relative;
   width: 100%;
   background: rgba(255, 255, 255, 0);
@@ -78,7 +81,7 @@ body {
   height: 100%;
   padding-top: 20%;
   padding-bottom: 20%;
-  background-color: #ffffffb2;
+  background-color: #ffffff70;
   transition: margin-left 0.18s ease; }
 
 .container .forms .form > * {

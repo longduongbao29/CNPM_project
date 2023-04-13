@@ -5,7 +5,7 @@ const body = document.querySelector('body'),
     searchBtn = body.querySelector(".search-box"),
     modeSwitch = body.querySelector(".toggle-switch"),
     modeText = body.querySelector(".mode-text");
-
+   
 
 toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close");
@@ -17,14 +17,6 @@ searchBtn.addEventListener("click", () => {
 
 modeSwitch.addEventListener("click", () => {
     body.classList.toggle("dark");
-
-    var logo = document.getElementById("logo");
-    if (logo.src.match("/img/logowhite.png")) {
-        logo.src = "/img/logo.png";
-    } else {
-        logo.src = "/img/logowhite.png";
-    }
-
     if (body.classList.contains("dark")) {
         modeText.innerText = "Light mode";
     } else {
@@ -32,7 +24,7 @@ modeSwitch.addEventListener("click", () => {
 
     }
 
-   
+
 });
 
 //Admin accounts
