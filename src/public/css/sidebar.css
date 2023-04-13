@@ -93,6 +93,8 @@ body.dark {
   position: relative; }
 
 .sidebar header .image-text {
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center; }
 
@@ -101,8 +103,10 @@ body.dark {
   flex-direction: column; }
 
 header .image-text .name {
+  color: #695CFE;
+  padding-left: 30px;
   margin-top: 2px;
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 600; }
 
 header .image-text .profession {
@@ -143,13 +147,14 @@ body.dark .sidebar header .toggle {
   transform: translateY(-50%) rotate(0deg); }
 
 .sidebar .menu {
-  margin-top: 40px; }
+  margin-top: 10px; }
 
 .sidebar li.search-box {
   border-radius: 6px;
-  background-color: var(--primary-color-light);
+  background-color: #ffffff;
   cursor: pointer;
-  transition: var(--tran-05); }
+  transition: var(--tran-05);
+  height: 0px; }
 
 .sidebar li.search-box input {
   height: 100%;
@@ -187,7 +192,7 @@ body.dark .sidebar li a:hover .text {
   color: var(--text-color); }
 
 .sidebar .menu-bar {
-  height: calc(100% - 55px);
+  height: calc(100% - 90px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -253,7 +258,6 @@ body.dark .switch::before {
   left: 20px; }
 
 .main_container {
-  font-size: 1em;
   position: absolute;
   top: 0;
   top: 0;

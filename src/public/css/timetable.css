@@ -29,8 +29,7 @@
   border: 1px solid #e2edf8;
   font-weight: 500;
   padding: 30px;
-  text-align: center;
-}
+  text-align: center; }
 
 .schedule-table table tbody td.day {
   font-size: 22px;
@@ -45,11 +44,7 @@
   position: relative;
   z-index: 10;
   transition: all 0.3s linear 0s;
-  min-width: 165px; 
-}
-.schedule-table table tbody td.active>* {
-  font-family: Lato-Regular;
-}
+  min-width: 165px; }
 
 .schedule-table table tbody td.active h4 {
   font-weight: 700;
@@ -61,14 +56,6 @@
   font-size: 16px;
   line-height: normal;
   margin-bottom: 0; }
-
-.schedule-table table tbody td .hover>* {
-  font-weight: 700;
-  font-size: 20px;
-  color: #ffffff;
-  margin-bottom: 5px;
-  font-family: Lato-Regular;
-}
 
 .schedule-table table tbody td .hover h4 {
   font-weight: 700;
