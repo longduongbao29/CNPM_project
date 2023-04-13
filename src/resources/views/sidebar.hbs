@@ -26,7 +26,11 @@
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name">My UET</span>
+                    {{#if admin}}
+                    <span class="name">MyUET Admin</span>
+                    {{else}}
+                    <span class="name">MyUET</span>
+                    {{/if }}
                     <span class="profession"></span>
                 </div>
             </div>
@@ -43,6 +47,26 @@
                 </li>
 
                 <ul class="menu-links">
+                    {{#if admin}}
+                    <li class="nav-link">
+                        <a id="admin-accounts" href="#">
+                            <i class='bx bxs-book icon'></i>
+                            <span class="text nav-text">Tài khoản</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a id="admin-students" href="#">
+                            <i class='bx bxs-home icon'></i>
+                            <span class="text nav-text">Sinh viên</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a id="admin-courses" href="#">
+                            <i class='bx bxs-book icon'></i>
+                            <span class="text nav-text">Khóa học</span>
+                        </a>
+                    </li>
+                    {{else}}
                     <li class="nav-link">
                         <a id="home" href="#">
                             <i class='bx bxs-home icon'></i>
@@ -90,7 +114,7 @@
                             <span class="text nav-text">Chương trình đào tạo</span>
                         </a>
                     </li>
-
+                    {{/if}}
                 </ul>
             </div>
 
@@ -123,7 +147,7 @@
         <div id="displayHTML"></div>
     </section>
 
-
+    <script src="/scripts/admin.js"></script>
     <script src="/scripts/sidebar.js"></script>
 
 </body>
