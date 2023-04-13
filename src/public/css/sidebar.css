@@ -109,6 +109,13 @@ header .image-text .name {
   font-size: 30px;
   font-weight: 600; }
 
+.admin-name {
+  color: #695CFE;
+  padding-left: 30px;
+  margin-top: 2px;
+  font-size: 20px;
+  font-weight: 600; }
+
 header .image-text .profession {
   font-size: 16px;
   margin-top: -2px;
@@ -262,7 +269,7 @@ body.dark .switch::before {
   top: 0;
   top: 0;
   left: 250px;
-  height: 100vh;
+  height: 90vh;
   width: calc(100% - 250px);
   background-color: var(--body-color);
   transition: var(--tran-05); }
@@ -274,8 +281,8 @@ body.dark .switch::before {
   padding: 12px 60px; }
 
 .sidebar.close ~ .main_container {
-  left: 80px;
-  height: 100vh;
+  left: 75px;
+  height: 90vh;
   width: calc(100% - 78px); }
 
 body.dark .main_container .text {
