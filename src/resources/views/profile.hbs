@@ -1,157 +1,98 @@
+<!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/profile.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
+    <link rel="stylesheet" hred="/css/sidebar.css">
+    <title>Home</title>
 </head>
 
 <body>
+    {{>sidebar}}
+    <section class="main_container">
 
-    {{#with student}}
-    <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-5 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                        width="150px" src={{this.image}}><span class="font-weight-bold">{{this.name}}Họ và
-                        tên</span><span class="text-black-50">{{this.email}}Email</span><span> </span></div>
-            </div>
-            <div class="col-md-7 border-right">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Thông tin cá nhân</h4>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-12"><label class="labels">Họ và tên</label><input type="text"
-                                class="form-control student-name" placeholder="Họ và tên" value={{this.name}}>
-                        </div>
-                        <div class="col-md-12"><label class="labels">Mã sinh viên</label><input type="text"
-                                class="form-control student-id" placeholder="" value={{this.studentID}}></div>
-                    </div>
-
-                    <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Giới tính</label><select class="form-control sex">
-                                <option value="nam">Nam</option>
-                                <option value="nữ">Nữ</option>
-                                <option value="khác">Khác</option>
-                            </select></div>
-                        <div class="col-md-12"><label class="labels">Số điện thoại</label><input type="text"
-                                class="form-control phone-number" placeholder="0123456789" value={{this.phone_number}}>
-                        </div>
-                        <div class="col-md-12"><label class="labels">Địa chỉ</label><input type="text"
-                                class="form-control address" placeholder="" value={{this.address}}></div>
-                        <div class="col-md-12"><label class="labels">Email</label><input type="text"
-                                class="form-control email" placeholder="abc@gmail.com" value={{this.email}}>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Lớp hành chính</label><input type="text"
-                                class="form-control course-class" placeholder="" value={{this.course_class}}>
-                        </div>
-                    </div>
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Lưu thông
-                            tin</button></div>
-                </div>
-            </div>
-            {{!-- <div class="col-md-4">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit
-                            Experience</span><span class="border px-3 p-1 add-experience"><i
-                                class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                    <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text"
-                            class="form-control" placeholder="experience" value=""></div> <br>
-                    <div class="col-md-12"><label class="labels">Additional Details</label><input type="text"
-                            class="form-control" placeholder="additional details" value=""></div>
-                </div>
-            </div> --}}
-        </div>
-    </div>
-    {{/with}}
-
-                        <div class="row about-list">
-                            <div class="col-md-6">
-                                <div class="media">
-                                    <label>Họ và tên</label>
-                                    <input class="" type="text" placeholder="Họ và tên"
-                                        value="Primitiva Germanus"></input>
-                                </div>
-                                <div class="media">
-                                    <label>Birthday</label>
-                                    <p>4th april 1998</p>
-                                </div>
-                                <div class="media">
-                                    <label>Age</label>
-                                    <p>22 Yr</p>
-                                </div>
-                                <div class="media">
-                                    <label>Residence</label>
-                                    <p>Canada</p>
-                                </div>
-                                <div class="media">
-                                    <label>Address</label>
-                                    <p>California, USA</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="media">
-                                    <label>E-mail</label>
-                                    <p>info@domain.com</p>
-                                </div>
-                                <div class="media">
-                                    <label>Phone</label>
-                                    <p>820-885-3321</p>
-                                </div>
-                                <div class="media">
-                                    <label>Skype</label>
-                                    <p>skype.0404</p>
-                                </div>
-                                <div class="media">
-                                    <label>Freelance</label>
-                                    <p>Available</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about-avatar">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="counter">
+        <div class="student-profile py-4" style="background: transparent; margin-top: 100px;">
+            <div class="container">
                 <div class="row">
-                    <div class="col-6 col-lg-3">
-                        <div class="count-data text-center">
-                            <h6 class="count h2" data-to="500" data-speed="500">500</h6>
-                            <p class="m-0px font-w-600">Happy Clients</p>
+                    <div class="col-lg-4">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent text-center">
+                                <img class="profile-img" src="/img/kimricha.jpg" alt="">
+                                <h3>Kim Ri Cha</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-0"><strong class="pr-1">Student ID:</strong>16namko1banKOwc</p>
+                                <p class="mb-0"><strong class="pr-1">Class:</strong>vapCoHoiPen</p>
+                                <p class="mb-0"><strong class="pr-1">Section:</strong>giaiLacDa</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-6 col-lg-3">
-                        <div class="count-data text-center">
-                            <h6 class="count h2" data-to="150" data-speed="150">150</h6>
-                            <p class="m-0px font-w-600">Project Completed</p>
+                    <div class="col-lg-8">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent border-0">
+                                <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                            </div>
+                            <div class="card-body pt-0">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th width="30%">Mã sinh viên</th>
+                                        <td width="2%">:</td>
+                                        <td>21000000</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Khóa </th>
+                                        <td width="2%">:</td>
+                                        <td>K69</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Giới tính</th>
+                                        <td width="2%">:</td>
+                                        <td>Gay</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Lớp hành chính</th>
+                                        <td width="2%">:</td>
+                                        <td>K69-CACLacDa</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Số tín đã hoàn thành</th>
+                                        <td width="2%">:</td>
+                                        <td>69</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="30%">Các môn đang học</th>
+                                        <td width="2%">:</td>
+                                        <td>ART2069 - Nghệ thuật chơi gay Casablanca<br>
+                                            VAR2007 - Vấp cỏ hướng đối thủ <br>
+                                            HIS1985 - Lịch sử Đảng Cộng sản Hàn Quốc <br>
+                                            KSA2023 - Nhập môn tiếng Ả Rập <br>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-6 col-lg-3">
-                        <div class="count-data text-center">
-                            <h6 class="count h2" data-to="850" data-speed="850">850</h6>
-                            <p class="m-0px font-w-600">Photo Capture</p>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-3">
-                        <div class="count-data text-center">
-                            <h6 class="count h2" data-to="190" data-speed="190">190</h6>
-                            <p class="m-0px font-w-600">Telephonic Talk</p>
+                        <div style="height: 26px"></div>
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-transparent border-0">
+                                <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Thông tin khác</h3>
+                            </div>
+                            <div class="card-body pt-0">
+                                <p>Ri bạn gái sinh ngày 27/1/1995, nặng 65kg, cao 1,67m, số đo 3 vòng 91-61-101 </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
+
 </body>
 
 </html>

@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!----======== CSS ======== -->
+    <!--======== CSS ======== -->
     <link rel="stylesheet" href="/css/sidebar.css">
 
-    <!----===== Boxicons CSS ===== -->
+    <!--===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -50,13 +50,13 @@
                     {{#if admin}}
                     <li class="nav-link">
                         <a id="admin-accounts" href="#">
-                            <i class='bx bxs-book icon'></i>
+                            <i class='bx bxs-user-account icon'></i>
                             <span class="text nav-text">Tài khoản</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a id="admin-students" href="#">
-                            <i class='bx bxs-home icon'></i>
+                        <a id="admin-students" href="http://localhost:3000/student-list">
+                            <i class='bx bxs-user-detail icon'></i>
                             <span class="text nav-text">Sinh viên</span>
                         </a>
                     </li>
@@ -75,35 +75,35 @@
                     </li>
 
                     <li class="nav-link">
-                        <a id="courses_in_progress" href="#">
+                        <a id="courses_in_progress" href="http://localhost:3000/courses-in-progress">
                             <i class='bx bxs-book icon'></i>
                             <span class="text nav-text">Khóa học</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a id="timetable" href="#">
+                        <a id="timetable" href="http://localhost:3000/timetable">
                             <i class='bx bxs-calendar icon'></i>
                             <span class="text nav-text">Thời khóa biểu</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a id="attendance" href="#">
+                        <a id="attendance" href="http://localhost:3000/attendance">
                             <i class='bx bxs-time icon'></i>
                             <span class="text nav-text">Lịch sử điểm danh</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a id="mark" href="#">
+                        <a id="mark" href="http://localhost:3000/completed-courses">
                             <i class='bx bxs-bookmark-alt icon'></i>
                             <span class="text nav-text">Điểm số</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a id="profile" href="#">
+                        <a id="profile" href="http://localhost:3000/profile">
                             <i class='bx bxs-user icon'></i>
                             <span class="text nav-text">Thông tin cá nhân</span>
                         </a>
@@ -143,9 +143,7 @@
 
     </nav>
 
-    <section class="main_container">
-        <div id="displayHTML"></div>
-    </section>
+
     <style>
         .nav-link {
             padding: 0px;

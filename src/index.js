@@ -16,7 +16,7 @@ const app = express()
 
 mongodb.connectDB()
 app.use(cookieParser())
-app.use(express.json({ limit: "1KB" }))
+app.use(express.json({ limit: "50mb" }))
 app.use(flash())
 //Express session lưu phiên đăng nhập
 app.use(expressSession({

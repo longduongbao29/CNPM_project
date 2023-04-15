@@ -9,6 +9,7 @@ $(document).ready(function () {
             error: function (error) {
                 console.log(error);
             }
+
         });
     });
 });
@@ -16,3 +17,20 @@ $(document).ready(function () {
 $(document).on('click', '#admin-add-student', function () {
     $("#displayHTML").load("add-student");
 });
+
+$(document).on('click', '#deleteModal', function () {
+    var studentId;
+    var deleteForm = document.forms['delete-form']
+    var btnDel = document.getElementById('btn-delete')
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        studentId = button.data('id')
+    })
+
+    btnDel.onclick = function () {
+        deleteForm.action = '/' + studentId + '?_method=DELETE'
+        deleteForm.submit()
+    }
+
+});
+

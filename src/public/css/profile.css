@@ -1,67 +1,37 @@
-.form-control:focus {
-  box-shadow: none;
-  border-color: #BA68C8; }
-
-.profile-button {
-  background: #632778;
-  box-shadow: none;
-  border: none; }
-
-.profile-button:hover {
-  background: #682773; }
-
-.profile-button:focus {
-  background: #682773;
-  box-shadow: none; }
-
-.profile-button:active {
-  background: #682773;
-  box-shadow: none; }
-
-.back:hover {
-  color: #682773;
-  cursor: pointer; }
-
-.labels {
-  font-size: 11px; }
-
-.add-experience:hover {
-  background: #BA68C8;
-  color: #fff;
-  cursor: pointer;
-  border: solid 1px #BA68C8; }
-
-.about-section .counter {
-  padding: 22px 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
-}
-.about-section .counter .count-data {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.about-section .counter .count {
-  font-weight: 700;
-  color: #20247b;
-  margin: 0 0 5px;
-}
-.about-section .counter p {
-  font-weight: 600;
+body {
+  padding: 0;
   margin: 0;
-}
-mark {
-    background-image: linear-gradient(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
-    background-size: 100% 3px;
-    background-repeat: no-repeat;
-    background-position: 0 bottom;
-    background-color: transparent;
-    padding: 0;
-    color: currentColor;
-}
-.theme-color {
-    color: #fc5356;
-}
-.dark-color {
-    color: #20247b;
-}
+  font-family: 'Lato', sans-serif;
+  color: #000; }
+
+.main-container {
+  background-color: transparent; }
+
+.student-profile .card {
+  border-radius: 10px; }
+
+.student-profile .card .card-header .profile_img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 10px auto;
+  border: 10px solid #ccc;
+  border-radius: 50%; }
+
+.student-profile .card h3 {
+  font-size: 20px;
+  font-weight: 700; }
+
+.student-profile .card p {
+  font-size: 16px;
+  color: #000; }
+
+.student-profile .table th,
+.student-profile .table td {
+  font-size: 14px;
+  padding: 5px 10px;
+  color: #000; }
+
+.profile-img {
+  width: 300px;
+  height: auto; }
