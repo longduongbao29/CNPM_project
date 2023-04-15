@@ -5,21 +5,35 @@ const body = document.querySelector('body'),
     searchBtn = body.querySelector(".search-box"),
     modeSwitch = body.querySelector(".toggle-switch"),
     modeText = body.querySelector(".mode-text");
-   
 
-toggle.addEventListener("click", () => {
-    sidebar.classList.toggle("close");
-})
+
 
 searchBtn.addEventListener("click", () => {
     sidebar.classList.remove("close");
 })
 
+
+function logout() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/logout", true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send();
+}
+
+function saveDarkmode(state) {
+    localStorage.setItem('darkmode', state);
+}
+
+function getDarkmode() {
+    return localStorage.getItem('darkmode');
+}
 modeSwitch.addEventListener("click", () => {
     body.classList.toggle("dark");
     if (body.classList.contains("dark")) {
+        saveDarkmode('dark')
         modeText.innerText = "Light mode";
     } else {
+        saveDarkmode('light')
         modeText.innerText = "Dark mode";
 
     }
@@ -27,150 +41,40 @@ modeSwitch.addEventListener("click", () => {
 
 });
 
-//Admin accounts
-
-$(document).ready(function () {
-    $('#admin-accounts').click(function () {
-        $.ajax({
-            url: '/home',
-            method: 'GET',
-            success: function (data) {
-                $('#displayHTML').html(data);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    });
-});
-
-//User accounts
-$(document).ready(function () {
-    $('#admin-courses').click(function () {
-        $.ajax({
-            url: '/home',
-            method: 'GET',
-            success: function (data) {
-                $('#displayHTML').html(data);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    });
-});
-$(document).ready(function () {
-    $('#home').click(function () {
-        $.ajax({
-            url: '/home',
-            method: 'GET',
-            success: function (data) {
-                $('#displayHTML').html(data);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    });
-});
-
-$(document).ready(function () {
-    $('#courses_in_progress').click(function () {
-        $.ajax({
-            url: '/courses-in-progress',
-            method: 'GET',
-            success: function (data) {
-                $('#displayHTML').html(data);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    });
-});
-
-$(document).ready(function () {
-    $('#timetable').click(function () {
-        $.ajax({
-            url: '/timetable',
-            method: 'GET',
-            success: function (data) {
-                $('#displayHTML').html(data);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    });
-});
-
-$(document).ready(function () {
-    $('#attendance').click(function () {
-        $.ajax({
-            url: '/attendance',
-            method: 'GET',
-            success: function (data) {
-                $('#displayHTML').html(data);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    });
-});
-
-
-$(document).ready(function () {
-    $('#mark').click(function () {
-        $.ajax({
-            url: '/completed-courses',
-            method: 'GET',
-            success: function (data) {
-                $('#displayHTML').html(data);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    });
-});
-$(document).ready(function () {
-    $('#profile').click(function () {
-        $.ajax({
-            url: '/profile',
-            method: 'GET',
-            success: function (data) {
-                $('#displayHTML').html(data);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    });
-});
-
-$(document).ready(function () {
-    $('#logo').click(function () {
-        $.ajax({
-            url: '/home',
-            method: 'GET',
-            success: function (data) {
-                $('#displayHTML').html(data);
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    });
-});
-
-
-$(document).ready(function () {
-    $("#displayHTML").load("home");
-});
-function logout() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/logout", true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send();
+function saveSidebarState(state) {
+    localStorage.setItem('sidebarState', state);
 }
+
+// Lấy trạng thái của thanh sidebar từ localStorage
+function getSidebarState() {
+    return localStorage.getItem('sidebarState');
+}
+// Lưu trạng thái của thanh sidebar vào localStorage khi người dùng click vào nút mở hoặc đóng thanh sidebar
+toggle.addEventListener('click', function () {
+    sidebar.classList.toggle("close");
+    if (sidebar.classList.contains('close')) {
+        saveSidebarState('close');
+    } else {
+        saveSidebarState('open');
+    }
+});
+
+// Lấy trạng thái của thanh sidebar từ localStorage và áp dụng nó cho thanh sidebar khi trang được tải lại
+window.addEventListener('load', function () {
+    var sidebarState = getSidebarState();
+
+    if (sidebarState === 'close') {
+        sidebar.classList.add('close');
+    } else {
+        sidebar.classList.remove('close');
+    }
+
+    var darkmode = getDarkmode();
+    console.log(darkmode);
+    if (darkmode === 'dark') {
+        body.classList.add("dark");
+    }
+    else {
+        body.classList.remove("dark");
+    }
+});

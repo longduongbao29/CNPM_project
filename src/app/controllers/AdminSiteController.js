@@ -2,8 +2,8 @@ const { StudentInfo } = require('../models/Models')
 const { courses_in_progress } = require('./SiteController')
 
 class AdminSiteController {
-    async sidebar(req, res) {
-        res.render('sidebar', { admin: true })
+    async home(req, res) {
+        res.render('home', { admin: true })
     }
 
     async studentList(req, res, next) {
@@ -43,7 +43,7 @@ class AdminSiteController {
     }
 
     async deleteStudent(req, res, next) {
-        StudentInfo.deleteOne({_id: req.params.id}).then(()=> {
+        StudentInfo.deleteOne({ _id: req.params.id }).then(() => {
             res.redirect('back')
         }).catch(next)
     }

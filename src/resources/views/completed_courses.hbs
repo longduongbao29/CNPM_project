@@ -58,6 +58,7 @@
 
 <body>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
@@ -75,56 +76,64 @@
                 <th scope="col">Điểm hệ 4</th>
 =======
     <h1 style="font-family: Lato-Bold;text-align:center;color: #4272d7">Kết quả học tập</h1>
+=======
+    {{>sidebar}}
+    <section class="main_container">
 
-    <div class="limiter">
-        <div class="container-table100">
-            <div class="wrap-table100">
-                <div class="table100 ver1 m-b-110">
-                    <div class="table100-head">
-                        <table>
-                            <thead>
-                                <tr class="row100 head">
-                                    <th class="cell100 column1">Mã môn học</th>
-                                    <th class="cell100 column2">Tên môn học</th>
-                                    <th class="cell100 column3">Số tín chỉ</th>
-                                    <th class="cell100 column4">Điểm hệ 10</th>
-                                    <th class="cell100 column5">Điểm chữ</th>
-                                    <th class="cell100 column6">Điểm hệ 4</th>
-                                </tr>
-                            </thead>
-                        </table>
+>>>>>>> f10b601 (fix page)
+
+        <h1 style="font-family: Lato-Bold;text-align:center;color: #4272d7">Kết quả học tập</h1>
+
+        <div class="limiter">
+            <div class="container-table100">
+                <div class="wrap-table100">
+                    <div class="table100 ver1 m-b-110">
+                        <div class="table100-head">
+                            <table>
+                                <thead>
+                                    <tr class="row100 head">
+                                        <th class="cell100 column1">Mã môn học</th>
+                                        <th class="cell100 column2">Tên môn học</th>
+                                        <th class="cell100 column3">Số tín chỉ</th>
+                                        <th class="cell100 column4">Điểm hệ 10</th>
+                                        <th class="cell100 column5">Điểm chữ</th>
+                                        <th class="cell100 column6">Điểm hệ 4</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="table100-body js-pscroll">
+                            <table>
+                                <tbody>
+                                    {{#each courses}}
+                                    {{#unless this.finished}}
+                                    <tr class="row100 body">
+                                        <td class="cell100 column1">{{this.course.course_ID}}</td>
+                                        <td class="cell100 column2">{{this.course.course_name}}</td>
+                                        <td class="cell100 column3">{{this.course.course_credits}}</td>
+                                        <td class="cell100 column4">{{this.mark10}}</td>
+                                        <td class="cell100 column5">{{this.letter_ratings}}</td>
+                                        <td class="cell100 column6">{{this.mark4}}</td>
+                                    </tr>
+                                    {{/unless}}
+                                    {{/each}}
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
                     </div>
-                    <div class="table100-body js-pscroll">
-                        <table>
-                            <tbody>
-                                {{#each courses}}
-                                {{#unless this.finished}}
-                                <tr class="row100 body">
-                                    <td class="cell100 column1">{{this.course.course_ID}}</td>
-                                    <td class="cell100 column2">{{this.course.course_name}}</td>
-                                    <td class="cell100 column3">{{this.course.course_credits}}</td>
-                                    <td class="cell100 column4">{{this.mark10}}</td>
-                                    <td class="cell100 column5">{{this.letter_ratings}}</td>
-                                    <td class="cell100 column6">{{this.mark4}}</td>
-                                </tr>
-                                {{/unless}}
-                                {{/each}}
-
-                            </tbody>
-                        </table>
-
+                    <div class="credits gpa" style="font-family: Lato-Bold;text-align:center;color: #ff0000">
+                        <p>Tổng số tín chỉ: {{creditsCount}}</p>
+                        <p>GPA: {{toFixed GPA 2}}</p>
                     </div>
-
-                </div>
-                <div class="credits gpa" style="font-family: Lato-Bold;text-align:center;color: #ff0000">
-                    <p>Tổng số tín chỉ: {{creditsCount}}</p>
-                    <p>GPA: {{toFixed GPA 2}}</p>
                 </div>
             </div>
+
+
         </div>
-
-
-    </div>
+    </section>
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 >>>>>>> 7190499 (change table format, add logo to sidebar)
 

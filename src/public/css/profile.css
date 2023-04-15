@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 body {
   background: rgb(99, 39, 120)
 }
@@ -182,3 +183,42 @@ mark {
     color: #20247b;
 >>>>>>> 3e9566d (change login page, profile, immplement side navbar)
 }
+=======
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  color: #000; }
+
+.main-container {
+  background-color: transparent; }
+
+.student-profile .card {
+  border-radius: 10px; }
+
+.student-profile .card .card-header .profile_img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 10px auto;
+  border: 10px solid #ccc;
+  border-radius: 50%; }
+
+.student-profile .card h3 {
+  font-size: 20px;
+  font-weight: 700; }
+
+.student-profile .card p {
+  font-size: 16px;
+  color: #000; }
+
+.student-profile .table th,
+.student-profile .table td {
+  font-size: 14px;
+  padding: 5px 10px;
+  color: #000; }
+
+.profile-img {
+  width: 300px;
+  height: auto; }
+>>>>>>> f10b601 (fix page)
