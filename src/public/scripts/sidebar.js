@@ -61,14 +61,6 @@ toggle.addEventListener('click', function () {
 
 // Lấy trạng thái của thanh sidebar từ localStorage và áp dụng nó cho thanh sidebar khi trang được tải lại
 window.addEventListener('load', function () {
-    var sidebarState = getSidebarState();
-
-    if (sidebarState === 'close') {
-        sidebar.classList.add('close');
-    } else {
-        sidebar.classList.remove('close');
-    }
-
     var darkmode = getDarkmode();
     console.log(darkmode);
     if (darkmode === 'dark') {
@@ -77,4 +69,14 @@ window.addEventListener('load', function () {
     else {
         body.classList.remove("dark");
     }
+
+    var sidebarState = getSidebarState();
+
+    if (sidebarState === 'close') {
+        sidebar.classList.add('close');
+    } else {
+        sidebar.classList.remove('close');
+    }
+
+
 });
