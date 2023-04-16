@@ -9,7 +9,6 @@
 
     <!--======== CSS ======== -->
     <link rel="stylesheet" href="/css/sidebar.css">
-
     <!--===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -49,61 +48,61 @@
                 <ul class="menu-links">
                     {{#if admin}}
                     <li class="nav-link">
-                        <a id="admin-accounts" href="#">
+                        <a id="admin-accounts">
                             <i class='bx bxs-user-account icon'></i>
                             <span class="text nav-text">Tài khoản</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a id="admin-students" href="http://localhost:3000/student-list">
+                        <a id="admin-students">
                             <i class='bx bxs-user-detail icon'></i>
                             <span class="text nav-text">Sinh viên</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a id="admin-courses" href="#">
+                        <a id="admin-courses">
                             <i class='bx bxs-book icon'></i>
                             <span class="text nav-text">Khóa học</span>
                         </a>
                     </li>
                     {{else}}
                     <li class="nav-link">
-                        <a id="home" href="#">
+                        <a id="home">
                             <i class='bx bxs-home icon'></i>
                             <span class="text nav-text">Trang chủ</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a id="courses_in_progress" href="http://localhost:3000/courses-in-progress">
+                        <a id="courses_in_progress">
                             <i class='bx bxs-book icon'></i>
                             <span class="text nav-text">Khóa học</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a id="timetable" href="http://localhost:3000/timetable">
+                        <a id="timetable">
                             <i class='bx bxs-calendar icon'></i>
                             <span class="text nav-text">Thời khóa biểu</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a id="attendance" href="http://localhost:3000/attendance">
+                        <a id="attendance">
                             <i class='bx bxs-time icon'></i>
                             <span class="text nav-text">Lịch sử điểm danh</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a id="mark" href="http://localhost:3000/completed-courses">
+                        <a id="mark">
                             <i class='bx bxs-bookmark-alt icon'></i>
                             <span class="text nav-text">Điểm số</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a id="profile" href="http://localhost:3000/profile">
+                        <a id="profile">
                             <i class='bx bxs-user icon'></i>
                             <span class="text nav-text">Thông tin cá nhân</span>
                         </a>
@@ -125,7 +124,6 @@
                         <span class="text nav-text">Logout</span>
                     </a>
                 </li>
-
                 <li class="mode">
                     <div class="sun-moon">
                         <i class='bx bx-moon icon moon'></i>
@@ -137,12 +135,13 @@
                         <span class="switch"></span>
                     </div>
                 </li>
-
             </div>
         </div>
 
     </nav>
-
+    <section class="main_container">
+        <div id="displayHTML"></div>
+    </section>
 
     <style>
         .nav-link {

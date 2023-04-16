@@ -5,6 +5,10 @@ class AdminSiteController {
     async home(req, res) {
         res.render('home', { admin: true })
     }
+    async sidebar(req, res) {
+        res.render('sidebar', { admin: true })
+    }
+
 
     async studentList(req, res, next) {
         let student
@@ -24,7 +28,7 @@ class AdminSiteController {
         new_student.save()
         //res.json(req.body)
         //res.send('SAVED')
-        res.redirect('/admin')
+        res.redirect('/student-list')
         //alert('Thêm sinh viên thành công!')
     }
 

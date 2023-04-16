@@ -63,7 +63,7 @@ const logout = (req, res) => {
 
     delete req.session.accountID// Xóa session
     req.flash('logout', 'Đăng xuất thành công!')
-    res.redirect('/')
+    res.redirect('/login-page')
 
 }
 const refreshToken = (req, res, next) => {
