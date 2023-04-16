@@ -26,7 +26,5 @@ pwShowHide.forEach(eyeIcon => {
     })
 })
 
-
-
 window.setTimeout("document.getElementById('message').style.display='none';", 2000);
 window.setTimeout("document.getElementById('logoutMessage').style.display='none';", 2000);

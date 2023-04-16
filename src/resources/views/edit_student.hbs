@@ -1,10 +1,5 @@
 {{!-- <form method="POST" action="/store-student"> --}}
-
-
-    {{>sidebar admin=true}}
-    <section class="main_container">
-
-        form method="POST" action="/{{student._id}}?_method=PUT">
+    <form method="POST" action="/{{student._id}}?_method=PUT">
         <div class="mb-3">
             <label for="studentID">Mã sinh viên</label>
             <input type="text" class="form-control" value="{{student.studentID}}" id="studentID" name="studentID">
@@ -46,7 +41,4 @@
             <input type="text" class="form-control" value="{{student.name}}" id="name" name="name">
         </div>
         <button type="submit" class="btn btn-primary">Lưu</button>
-</form>
-
-</section>
-<
+    </form>

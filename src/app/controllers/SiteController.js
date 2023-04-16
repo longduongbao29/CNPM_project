@@ -101,7 +101,7 @@ class SiteController {
     }
 
     async sidebar(req, res) {
-        res.render('home')
+        res.render('sidebar')
     }
 
 }

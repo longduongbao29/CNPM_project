@@ -16,7 +16,7 @@ class AdminSiteController {
 
     async addStudent(req, res, next) {
         res.render('add_student')
-        //res.send('success')
+
     }
     async storeStudent(req, res, next) {
         const data = req.body
@@ -38,15 +38,23 @@ class AdminSiteController {
 
     async updateStudent(req, res, next) {
         StudentInfo.updateOne({ _id: req.params.id }, req.body).then(() => {
-            res.redirect('/student-list')
+            res.redirect('/admin')
         }).catch(next)
     }
 
     async deleteStudent(req, res, next) {
-        StudentInfo.deleteOne({ _id: req.params.id }).then(() => {
-            res.redirect('back')
-        }).catch(next)
+        try {
+            await StudentInfo.deleteOne({ _id: req.params.id });
+            res.redirect('/admin')
+
+        } catch (err) {
+            next(err);
+        }
     }
+    async sidebar(req, res) {
+        res.render('sidebar', { admin: true })
+    }
+
 }
 
 module.exports = new AdminSiteController

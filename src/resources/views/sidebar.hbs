@@ -13,7 +13,7 @@
     <!--===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!--<title>Dashboard Sidebar Menu</title>-->
 </head>
 
@@ -55,7 +55,7 @@
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a id="admin-students" href="http://localhost:3000/student-list">
+                        <a id="admin-students" href="#">
                             <i class='bx bxs-user-detail icon'></i>
                             <span class="text nav-text">Sinh viên</span>
                         </a>
@@ -75,35 +75,35 @@
                     </li>
 
                     <li class="nav-link">
-                        <a id="courses_in_progress" href="http://localhost:3000/courses-in-progress">
+                        <a id="courses_in_progress" href="#">
                             <i class='bx bxs-book icon'></i>
                             <span class="text nav-text">Khóa học</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a id="timetable" href="http://localhost:3000/timetable">
+                        <a id="timetable" href="#">
                             <i class='bx bxs-calendar icon'></i>
                             <span class="text nav-text">Thời khóa biểu</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a id="attendance" href="http://localhost:3000/attendance">
+                        <a id="attendance" href="#">
                             <i class='bx bxs-time icon'></i>
                             <span class="text nav-text">Lịch sử điểm danh</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a id="mark" href="http://localhost:3000/completed-courses">
+                        <a id="mark" href="#">
                             <i class='bx bxs-bookmark-alt icon'></i>
                             <span class="text nav-text">Điểm số</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a id="profile" href="http://localhost:3000/profile">
+                        <a id="profile" href="#">
                             <i class='bx bxs-user icon'></i>
                             <span class="text nav-text">Thông tin cá nhân</span>
                         </a>
@@ -142,16 +142,18 @@
         </div>
 
     </nav>
-
+    <section class="main_container">
+        <div id="displayHTML"></div>
+    </section>
 
     <style>
         .nav-link {
             padding: 0px;
         }
     </style>
-
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/scripts/admin.js"></script>
+    <script src="/scripts/user.js"></script>
     <script src="/scripts/sidebar.js"></script>
 
 </body>
