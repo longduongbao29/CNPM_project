@@ -3,7 +3,8 @@ const { User } = require('../models/Models')
 
 const moment = require('moment');
 
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const CourseInfo = require('../models/CourseInfo');
 
 class AdminSiteController {
     async home(req, res) {
@@ -19,6 +20,13 @@ class AdminSiteController {
             student = student_.map(student => student.toObject())
         }).catch(next)
         res.render('student_list', { student })
+    }
+    async courseList(req, res, next) {
+        let courses
+        await CourseInfo.find().then((courses_) => {
+            courses = courses_.map(c => c.toObject())
+        }).catch(next)
+        res.render('course_list', { courses })
     }
 
     async storeStudent(req, res, next) {

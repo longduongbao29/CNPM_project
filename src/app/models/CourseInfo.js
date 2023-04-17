@@ -5,7 +5,7 @@ const courseInfoSchema = new Schema({
     course_ID: {
         type: String
     },
-    name: {
+    course_name: {
         type: String
     },
     credits: {
