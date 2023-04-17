@@ -18,7 +18,7 @@ const completedCourseSchema = new Schema({
         type: Number
     }
 
-}, { timestamps: true })
+})
 
 const Completed_Courses = mongoose.model('Completed_Courses', completedCourseSchema, 'completed_courses')
 

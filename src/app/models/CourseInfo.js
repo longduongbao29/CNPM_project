@@ -26,7 +26,7 @@ const courseInfoSchema = new Schema({
     date_time: {
         type: String
     }
-}, { timestamps: true })
+})
 
 const CourseInfo = mongoose.model('CourseInfo', courseInfoSchema, 'course_infos')
 

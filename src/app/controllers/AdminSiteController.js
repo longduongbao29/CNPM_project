@@ -1,9 +1,14 @@
 const { StudentInfo } = require('../models/Models')
-const { courses_in_progress } = require('./SiteController')
+const { User } = require('../models/Models')
+
+const bcrypt = require('bcryptjs')
 
 class AdminSiteController {
     async home(req, res) {
         res.render('home', { admin: true })
+    }
+    async sidebar(req, res) {
+        res.render('sidebar', { admin: true })
     }
 
     async studentList(req, res, next) {
@@ -14,18 +19,25 @@ class AdminSiteController {
         res.render('student_list', { student })
     }
 
-    async addStudent(req, res, next) {
-        res.render('add_student')
-
-    }
     async storeStudent(req, res, next) {
         const data = req.body
         const new_student = new StudentInfo(data)
         new_student.save()
-        //res.json(req.body)
-        //res.send('SAVED')
+
+
+        let password_ = req.body.date_of_birth
+        password_ = password_.replace(/-/g, "")
+        bcrypt.hash(password_, 10, function (err, password) {
+            const user = {
+                studentID: req.body.studentID,
+                password: password
+            }
+            const new_user = new User(user)
+            new_user.save()
+        });
+
         res.redirect('/admin')
-        //alert('Thêm sinh viên thành công!')
+
     }
     async getStudent(req, res, next) {
         let student
@@ -58,10 +70,6 @@ class AdminSiteController {
             next(err);
         }
     }
-    async sidebar(req, res) {
-        res.render('sidebar', { admin: true })
-    }
-
 }
 
 module.exports = new AdminSiteController
