@@ -5,7 +5,10 @@ const coursesInProgressSchema = new Schema({
     studentID: {
         type: String,
     },
-    course: { type: Schema.Types.ObjectId, ref: 'CourseInfo' },
+    course_ID: {
+        type: String,
+    },
+
 
     attendance_check: {
         type: Number

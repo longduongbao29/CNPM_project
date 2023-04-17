@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/table.css">
 
-  
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
@@ -37,13 +37,13 @@
                         <table>
                             <tbody>
                                 {{#each courses}}
-                                {{#unless this.finished}}
+
                                 <tr class="row100 body">
-                                    <td class="cell100 column1">{{this.course.course_ID}}</td>
-                                    <td class="cell100 column2">{{this.course.course_name}}</td>
+                                    <td class="cell100 column1">{{this.course_ID}}</td>
+                                    <td class="cell100 column2">{{this.course_name}}</td>
                                     <td class="cell100 column3">{{this.attendance_check}}/16</td>
                                 </tr>
-                                {{/unless}}
+
                                 {{/each}}
                             </tbody>
                         </table>

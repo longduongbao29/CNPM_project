@@ -5,51 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/add_student.css">
 </head>
 
 <body>
-
-    <form method="POST" action="/store-student">
-        <div class="mb-3">
-            <label for="studentID">Mã sinh viên</label>
-            <input type="text" class="form-control" id="studentID" name="studentID">
+    <div class="wrapper">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Full Name</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" class="form-control" value="John Doe">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Email</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" class="form-control" value="john@example.com">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Phone</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" class="form-control" value="(239) 816-9029">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Mobile</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" class="form-control" value="(320) 380-4539">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Address</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" class="form-control" value="Bay Area, San Francisco, CA">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="button" class="btn btn-primary px-4" value="Save Changes">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="mb-3">
-            <label for="course_class">Lớp khóa học</label>
-            <input type="text" class="form-control" id="course_class" name="course_class">
-        </div>
-        <div class="mb-3">
-            <label for="date_of_birth">Ngày sinh</label>
-            <input type="text" class="form-control" id="date_of_birth" name="date_of_birth">
-        </div>
-        <div class="mb-3">
-            <label for="sex">Giới tính</label>
-            <input type="text" class="form-control" id="sex" name="sex">
-        </div>
-        <div class="mb-3">
-            <label for="address">Địa chỉ</label>
-            <input type="text" class="form-control" id="address" name="address">
-        </div>
-        <div class="mb-3">
-            <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" name="email">
-        </div>
-        <div class="mb-3">
-            <label for="phone_number">Số điện thoại</label>
-            <input type="text" class="form-control" id="phone_number" name="phone_number">
-        </div>
-        <div class="mb-3">
-            <label for="image">Ảnh</label>
-            <input type="text" class="form-control" id="image" name="image">
-        </div>
-        <div class="mb-3">
-            <label for="name">Tên sinh viên</label>
-            <input type="text" class="form-control" id="name" name="name">
-        </div>
-        <button id="add-student-submit" type="submit" class="btn btn-primary">Thêm sinh viên</button>
-    </form>
-    <script src="/scripts/add_student.js"></script>
+    </div>
 </body>
 
 </html>

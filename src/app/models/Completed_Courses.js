@@ -5,7 +5,9 @@ const completedCourseSchema = new Schema({
     studentID: {
         type: String,
     },
-    course: { type: Schema.Types.ObjectId, ref: 'CourseInfo' },
+    course_ID: {
+        type: String,
+    },
     mark10: {
         type: Number
     },

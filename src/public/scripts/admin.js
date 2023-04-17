@@ -6,5 +6,6 @@ $(document).ready(function () {
     const state = localStorage.getItem('state');
     if (state != null) {
         $("#displayHTML").load(state);
+        localStorage.removeItem('state');
     }
 })

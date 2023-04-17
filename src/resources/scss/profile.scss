@@ -1,46 +1,26 @@
 body {
-
-    padding: 0;
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-    color: #000;
+    background: #f7f7ff;
+    margin-top: 20px;
 }
 
-.main-container {
-    background-color: transparent;
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid transparent;
+    border-radius: .25rem;
+    margin-bottom: 1.5rem;
+
 }
 
-.student-profile .card {
-    border-radius: 10px;
+.me-2 {
+    margin-right: .5rem !important;
 }
 
-.student-profile .card .card-header .profile_img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin: 10px auto;
-    border: 10px solid #ccc;
-    border-radius: 50%;
-}
-
-.student-profile .card h3 {
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.student-profile .card p {
-    font-size: 16px;
-    color: #000;
-}
-
-.student-profile .table th,
-.student-profile .table td {
-    font-size: 14px;
-    padding: 5px 10px;
-    color: #000;
-}
-
-.profile-img {
-    width: 300px;
-    height: auto;
+.container {
+    margin-top: 200px;
 }

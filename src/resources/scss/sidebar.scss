@@ -37,6 +37,7 @@ body {
 }
 
 body.dark {
+    background-color: var(--body-color);
     --body-color: #18191a;
     --sidebar-color: #242526;
     --primary-color: #3a3b3c;
@@ -337,7 +338,7 @@ body.dark .switch::before {
 }
 
 body.dark .main_container .text {
-    color: var(--text-color);
+    color: rgba(255, 255, 255, 0);
 }
 
 .sidebar .menu .menu-links {

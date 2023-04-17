@@ -65,16 +65,16 @@
                         <table>
                             <tbody>
                                 {{#each courses}}
-                                {{#unless this.finished}}
+
                                 <tr class="row100 body">
-                                    <td class="cell100 column1">{{this.course.course_ID}}</td>
-                                    <td class="cell100 column2">{{this.course.course_name}}</td>
-                                    <td class="cell100 column3">{{this.course.course_credits}}</td>
-                                    <td class="cell100 column4">{{this.course.teacher_name}}</td>
-                                    <td class="cell100 column5">{{this.course.date_time}}</td>
-                                    <td class="cell100 column6">{{this.course.room}}</td>
+                                    <td class="cell100 column1">{{this.course_ID}}</td>
+                                    <td class="cell100 column2">{{this.course_name}}</td>
+                                    <td class="cell100 column3">{{this.course_credits}}</td>
+                                    <td class="cell100 column4">{{this.teacher_name}}</td>
+                                    <td class="cell100 column5">{{this.date_time}}</td>
+                                    <td class="cell100 column6">{{this.room}}</td>
                                 </tr>
-                                {{/unless}}
+
                                 {{/each}}
                             </tbody>
                         </table>
