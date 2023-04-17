@@ -270,7 +270,7 @@ body.dark .switch::before {
   top: 0;
   top: 0;
   left: 250px;
-  height: 90vh;
+  height: 100vh;
   width: calc(100% - 250px);
   background-color: #ffffff00;
   transition: var(--tran-05); }
@@ -283,7 +283,7 @@ body.dark .switch::before {
 
 .sidebar.close ~ .main_container {
   left: 75px;
-  height: 90vh;
+  height: 100vh;
   width: calc(100% - 78px); }
 
 body.dark .main_container .text {
