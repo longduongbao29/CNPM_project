@@ -11,12 +11,12 @@ $('a[data-bs-toggle="modal"]').click(function () {
     studentId = $(this).data('id');
 });
 $(document).on('click', '#btn-delete', function () {
-    deleteForm.action = '/' + studentId + '?_method=DELETE'
+    deleteForm.action = '/' + studentId + '/delete-student' + '?_method=DELETE'
     deleteForm.submit()
     localStorage.setItem('state', 'student-list');
 });
 $(document).on('click', '#edit-submit', function () {
-    editForm.action = '/' + studentId + '?_method=PUT'
+    editForm.action = '/' + studentId + '/update-student' + '?_method=PUT'
     editForm.submit()
     localStorage.setItem('state', 'student-list');
 });

@@ -50,6 +50,14 @@ class AdminSiteController {
         res.redirect('/admin')
 
     }
+
+    async storeCourse(req, res, next) {
+        const data = req.body
+        const new_course = new CourseInfo(data)
+        new_course.save()
+        res.redirect('/admin')
+    }
+
     async getStudent(req, res, next) {
         let student
         await StudentInfo.findById(req.params.id).then((student_) => {
@@ -58,6 +66,16 @@ class AdminSiteController {
         }).catch(next)
 
     }
+
+    async getCourse(req, res, next) {
+        let course
+        await CourseInfo.findById(req.params.id).then((course_) => {
+            course = course_.toObject()
+            res.json(course)
+        }).catch(next)
+
+    }
+
     async editStudent(req, res, next) {
         let student
         await StudentInfo.findById(req.params.id).then((student_) => {
@@ -66,8 +84,22 @@ class AdminSiteController {
         res.render('edit_student', { student })
     }
 
+    async editCourse(req, res, next) {
+        let course
+        await CourseInfo.findById(req.params.id).then((course_) => {
+            course = course_.toObject()
+        }).catch(next)
+        res.render('edit_course', { course })
+    }
+
     async updateStudent(req, res, next) {
         StudentInfo.updateOne({ _id: req.params.id }, req.body).then(() => {
+            res.redirect('/admin')
+        }).catch(next)
+    }
+
+    async updateCourse(req, res, next) {
+        CourseInfo.updateOne({ _id: req.params.id }, req.body).then(() => {
             res.redirect('/admin')
         }).catch(next)
     }
@@ -75,6 +107,16 @@ class AdminSiteController {
     async deleteStudent(req, res, next) {
         try {
             await StudentInfo.deleteOne({ _id: req.params.id });
+            res.redirect('/admin')
+
+        } catch (err) {
+            next(err);
+        }
+    }
+
+    async deleteCourse(req, res, next) {
+        try {
+            await CourseInfo.deleteOne({ _id: req.params.id });
             res.redirect('/admin')
 
         } catch (err) {
