@@ -8,7 +8,7 @@ const adminSchema = new Schema({
     password: {
         type: String
     }
-}, { timestamps: true })
+})
 
 const Admin = mongoose.model('Admin', adminSchema, 'admins')
 

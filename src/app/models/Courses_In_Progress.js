@@ -14,7 +14,7 @@ const coursesInProgressSchema = new Schema({
         type: Number
     }
 
-}, { timestamps: true })
+})
 
 const Courses_In_Progress = mongoose.model('Courses_In_Progress', coursesInProgressSchema, 'courses_in_progress')
 

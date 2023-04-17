@@ -5,6 +5,7 @@ $(document).on('click', '#admin-add-student', function () {
 var studentId;
 var deleteForm = document.forms['delete-form']
 var editForm = document.forms['edit-form']
+
 $('a[data-bs-toggle="modal"]').click(function () {
     studentId = $(this).data('id');
 });

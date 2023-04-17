@@ -2,6 +2,9 @@ const CourseInfo = require('../models/CourseInfo')
 const { StudentInfo } = require('../models/Models')
 const { Completed_Courses } = require('../models/Models')
 const { CoursesInProgress } = require('../models/Models')
+
+const moment = require('moment');
+
 class SiteController {
     async home(req, res) {
         res.render('home')
@@ -73,14 +76,6 @@ class SiteController {
     }
 
 
-
-    async profile(req, res) {
-        let id = req.session.userID
-        let studentInfo = await StudentInfo.find({ studentID: id })
-
-        res.render('profile', { studentInfo })
-    }
-
     async timetable(req, res) {
         let id = req.session.accountID
         let student, courses = []
@@ -125,10 +120,12 @@ class SiteController {
     async profile(req, res) {
         let id = req.session.accountID
         let student
-        await StudentInfo.find({ studentID: id }).then((student_) => {
-            student = student_.map(student => student.toObject())
+        await StudentInfo.findOne({ studentID: id }).then((student_) => {
+            student = student_.toObject()
 
         })
+        let birthday = moment(student.date_of_birth).format('DD/MM/YYYY');
+        student.date_of_birth = birthday
         res.render('profile', { student })
     }
 
