@@ -27,7 +27,14 @@ class AdminSiteController {
         res.redirect('/admin')
         //alert('Thêm sinh viên thành công!')
     }
+    async getStudent(req, res, next) {
+        let student
+        await StudentInfo.findById(req.params.id).then((student_) => {
+            student = student_.toObject()
+            res.json(student)
+        }).catch(next)
 
+    }
     async editStudent(req, res, next) {
         let student
         await StudentInfo.findById(req.params.id).then((student_) => {
