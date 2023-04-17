@@ -1,6 +1,5 @@
 
 $(document).on('click', '#admin-add-student', function () {
-    $("#displayHTML").load("add-student");
     localStorage.setItem('state', 'student-list');
 });
 var studentId;
