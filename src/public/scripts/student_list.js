@@ -68,21 +68,24 @@ $('a[data-bs-toggle="view"]').click(function () {
 
 })
 function hideEditStudentForm() {
-    const formEdit = document.querySelectorAll("form input");
+    const formEdit = document.getElementById("edit-form");
+    const inputs = formEdit.querySelectorAll('input');
     const editBtn = document.getElementById("edit-submit");
-    var form = document.getElementById("edit-student-form");
-    form.style.display = "none";
-    formEdit.forEach(input => {
+    inputs.forEach(input => {
         input.setAttribute('disabled', true);
     });
     editBtn.style.display = "none";
+    var form = document.getElementById("edit-student-form");
+    form.style.display = "none";
+
 }
 
 function showEditBtn() {
-    const formEdit = document.querySelectorAll("form input");
+    const formEdit = document.getElementById("edit-form");
+    const inputs = formEdit.querySelectorAll('input');
     const editBtn = document.getElementById("edit-submit");
-    formEdit.forEach(input => {
-        input.removeAttribute('disabled');
+    inputs.forEach(input => {
+        input.removeAttribute('disabled', true);
     });
     editBtn.style.display = "block"
 }
