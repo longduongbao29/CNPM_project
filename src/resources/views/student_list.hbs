@@ -123,7 +123,7 @@
 
         <div class="formbold-form-wrapper">
             <button id="closeButton" onclick="hideAddStudentForm()"><ion-icon name="close-outline"></ion-icon></button>
-            <div class="add-student-title">Thêm sinh viên</div>
+            <div class="title">Thêm sinh viên</div>
 
             <form action="/store-student" method="POST">
                 <div class="formbold-mb-5">
@@ -188,33 +188,37 @@
     <div id="edit-student-form" class="formbold-main-wrapper" style="display: none;">
         <div class="formbold-form-wrapper">
             <button id="closeButton" onclick="hideEditStudentForm()"><ion-icon name="close-outline"></ion-icon></button>
-            <div class="add-student-title">Xem thông tin sinh viên</div>
+            <div class="title">
+                <p>Xem thông tin sinh viên<ion-icon onclick="showEditBtn()" name="create-outline"
+                        style="margin-left:50px"></ion-icon></p>
+
+            </div>
 
             <form name="edit-form" action="" method="POST">
                 <div class="formbold-mb-5">
                     <label for="studentID" class="formbold-form-label">Mã số sinh viên </label>
-                    <input type="text" name="studentID" id="edit-studentID" class="formbold-form-input" />
+                    <input type="text" name="studentID" id="edit-studentID" class="formbold-form-input" disabled>
                 </div>
                 <div class="formbold-mb-5">
                     <label for="name" class="formbold-form-label">Họ và tên </label>
-                    <input type="text" name="name" id="edit-name" class="formbold-form-input" />
+                    <input type="text" name="name" id="edit-name" class="formbold-form-input" disabled>
                 </div>
                 <div class="formbold-mb-5">
                     <label for="course-class" class="formbold-form-label"> Lớp khóa học </label>
-                    <input type="text" name="course_class" id="edit-course_class" class="formbold-form-input" />
+                    <input type="text" name="course_class" id="edit-course_class" class="formbold-form-input" disabled>
                 </div>
                 <div class="flex flex-wrap formbold--mx-3">
                     <div class="w-full sm:w-half formbold-px-3">
                         <div class="formbold-mb-5 w-full">
                             <label for="date" class="formbold-form-label"> Ngày sinh </label>
-                            <input type="date" name="date_of_birth" id="edit-date_of_birth"
-                                class="formbold-form-input" />
+                            <input type="date" name="date_of_birth" id="edit-date_of_birth" class="formbold-form-input"
+                                disabled>
                         </div>
                     </div>
                     <div class="w-full sm:w-half formbold-px-3">
                         <div class="formbold-mb-5">
                             <label for="gender" class="formbold-form-label"> Giới tính </label>
-                            <select name="sex" id="edit-sex" style="border-radius: 10px;padding: 5px;">
+                            <select name="sex" id="edit-sex" style="border-radius: 10px;padding: 5px;" disabled>
                                 <option value="Nam">Nam</option>
                                 <option value="Nữ">Nữ</option>
                             </select>
@@ -223,22 +227,22 @@
                 </div>
                 <div class="formbold-mb-5">
                     <label for="address" class="formbold-form-label"> Địa chỉ </label>
-                    <input type="text" name="adress" id="edit-address" class="formbold-form-input" />
+                    <input type="text" name="adress" id="edit-address" class="formbold-form-input" disabled>
                 </div>
                 <div class="formbold-mb-5">
                     <label for="email" class="formbold-form-label">Email</label>
-                    <input type="email" name="email" id="edit-email" class="formbold-form-input" />
+                    <input type="email" name="email" id="edit-email" class="formbold-form-input" disabled>
                 </div>
                 <div class="formbold-mb-5">
                     <label for="phone" class="formbold-form-label"> Số điện thoại</label>
-                    <input type="text" name="phone_number" id="edit-phone_number" class="formbold-form-input" />
+                    <input type="text" name="phone_number" id="edit-phone_number" class="formbold-form-input" disabled>
                 </div>
                 <div class="formbold-mb-5">
                     <label for="image" class="formbold-form-label"> Hình ảnh </label>
-                    <input type="text" name="image" id="edit-image" class="formbold-form-input" />
+                    <input type="text" name="image" id="edit-image" class="formbold-form-input" disabled>
                 </div>
                 <div>
-                    <button id="edit-submit" class="formbold-btn">Sửa</button>
+                    <button id="edit-submit" style="display: none; margin-top:25px;" class="formbold-btn">Sửa</button>
                 </div>
             </form>
         </div>

@@ -1,11 +1,12 @@
 
-$(document).on('click', '#admin-add-student', function () {
-    localStorage.setItem('state', 'student-list');
-});
+
 var studentId;
 var deleteForm = document.forms['delete-form']
 var editForm = document.forms['edit-form']
 
+$(document).on('click', '#admin-add-student', function () {
+    localStorage.setItem('state', 'student-list');
+});
 $('a[data-bs-toggle="modal"]').click(function () {
     studentId = $(this).data('id');
 });
@@ -67,7 +68,21 @@ $('a[data-bs-toggle="view"]').click(function () {
 
 })
 function hideEditStudentForm() {
+    const formEdit = document.querySelectorAll("form input");
+    const editBtn = document.getElementById("edit-submit");
     var form = document.getElementById("edit-student-form");
     form.style.display = "none";
+    formEdit.forEach(input => {
+        input.setAttribute('disabled', true);
+    });
+    editBtn.style.display = "none";
 }
 
+function showEditBtn() {
+    const formEdit = document.querySelectorAll("form input");
+    const editBtn = document.getElementById("edit-submit");
+    formEdit.forEach(input => {
+        input.removeAttribute('disabled');
+    });
+    editBtn.style.display = "block"
+}
