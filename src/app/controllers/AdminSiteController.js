@@ -1,6 +1,8 @@
 const { StudentInfo } = require('../models/Models')
 const { User } = require('../models/Models')
 
+const moment = require('moment');
+
 const bcrypt = require('bcryptjs')
 
 class AdminSiteController {
@@ -26,7 +28,8 @@ class AdminSiteController {
 
 
         let password_ = req.body.date_of_birth
-        password_ = password_.replace(/-/g, "")
+        password_ = moment(password_).format('DD/MM/YYYY');
+        password_ = password_.replace(/\//g, "")
         bcrypt.hash(password_, 10, function (err, password) {
             const user = {
                 studentID: req.body.studentID,
