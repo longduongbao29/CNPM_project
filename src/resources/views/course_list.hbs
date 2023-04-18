@@ -73,13 +73,18 @@
                                     <td class="cell100 column3">{{this.teacher_name}}</td>
                                     <td class="cell100 column4">
                                         <a class="btn btn-link" data-bs-toggle="view" data-id="{{this._id}}">
-                                            <ion-icon name="eye"></ion-icon>
+                                            <ion-icon name="information-circle"></ion-icon>
                                         </a>
-
                                     </td>
                                     <td class="cell100 column5">
+                                        <a class="btn btn-link" data-bs-toggle="entryclass" data-id="{{this._id}}">
+                                            <ion-icon name="people"></ion-icon>
+                                        </a>
+                                    </td>
+                                    <td class="cell100 column6">
                                         <a class="btn btn-link" data-bs-toggle="modal" data-id="{{this._id}}"
-                                            data-bs-target="#deleteModal"><ion-icon name="trash"></ion-icon></a>
+                                            data-bs-target="#deleteModal"><ion-icon name="trash"></ion-icon>
+                                        </a>
                                     </td>
 
                                 </tr>

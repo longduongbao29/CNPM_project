@@ -1,5 +1,3 @@
-
-
 var courseId;
 var deleteForm = document.forms['delete-form']
 var editForm = document.forms['edit-form']
@@ -9,7 +7,6 @@ $(document).on('click', '#admin-add-course', function () {
 });
 $('a[data-bs-toggle="modal"]').click(function () {
     courseId = $(this).data('id');
-    console.log(courseId)
 });
 $(document).on('click', '#btn-delete', function () {
     deleteForm.action = '/' + courseId + '/delete-course' + '?_method=DELETE'
@@ -89,3 +86,8 @@ function showEditBtn() {
     });
     editBtn.style.display = "block"
 }
+
+$('a[data-bs-toggle="entryclass"]').click(function () {
+    courseId = $(this).data('id');
+    $("#displayHTML").load("course-info/" + courseId);
+});

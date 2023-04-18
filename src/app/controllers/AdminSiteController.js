@@ -1,4 +1,4 @@
-const { StudentInfo } = require('../models/Models')
+const { StudentInfo, CoursesInProgress, Completed_Courses } = require('../models/Models')
 const { User } = require('../models/Models')
 
 const moment = require('moment');
@@ -122,6 +122,67 @@ class AdminSiteController {
         } catch (err) {
             next(err);
         }
+    }
+
+    async studentInProgress(req, res, next) {
+        let id = req.params.id;
+        let courseID
+        await CourseInfo.findById(id).then(course => {
+            if (course) {
+                courseID = course.course_ID
+            }
+        }
+        )
+        console.log(courseID)
+        let students = [], courses
+        await CoursesInProgress.find({ course_ID: courseID }).then(courses_ => {
+            courses = courses_.map(course => course.toObject());
+        })
+        await Promise.all(courses.map(async (c) => {
+            let studentid = c.studentID;
+            let student = await StudentInfo.findOne({ studentID: studentid });
+            if (student) {
+                student = student.toObject()
+            }
+            students.push(student)
+        }))
+
+
+        res.render('student_in_progress', { students })
+
+    }
+    async studentCompleted(req, res, next) {
+        let id = req.params.id;
+        let courseID
+        await CourseInfo.findById(id).then(course => {
+            if (course) { courseID = course.course_ID }
+
+        }
+        )
+        let students = [], courses
+        await Completed_Courses.find({ course_ID: courseID }).then(courses_ => {
+            courses = courses_.map(course => course.toObject());
+        })
+        await Promise.all(courses.map(async (c) => {
+            let studentid = c.studentID;
+            let student = await StudentInfo.findOne({ studentID: studentid });
+            if (student) {
+                student = student.toObject()
+            }
+            students.push(student)
+        }))
+
+
+        res.render('student_completed', { students })
+    }
+
+    async courseInfo(req, res, next) {
+        await CourseInfo.findById(req.params.id).then(course => {
+            course = course.toObject()
+            res.render('course_info', { course })
+        })
+
+
     }
 }
 

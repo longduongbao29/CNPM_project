@@ -26,4 +26,8 @@ router.delete('/:id/delete-course', AuthController.loginRequired, authenticate, 
 
 router.get('/student/:id', AuthController.loginRequired, authenticate, adminSiteController.getStudent)
 router.get('/course/:id', AuthController.loginRequired, authenticate, adminSiteController.getCourse)
+
+router.get('/course-info/:id', AuthController.loginRequired, authenticate, adminSiteController.courseInfo)
+router.get('/course-student/inprogress/:id', AuthController.loginRequired, authenticate, adminSiteController.studentInProgress)
+router.get('/course-student/completed/:id', AuthController.loginRequired, authenticate, adminSiteController.studentCompleted)
 module.exports = router
