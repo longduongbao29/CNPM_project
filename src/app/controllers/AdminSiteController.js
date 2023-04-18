@@ -169,6 +169,7 @@ class AdminSiteController {
             if (student) {
                 student = student.toObject()
             }
+            student = Object.assign({}, c, student)
             students.push(student)
         }))
 

@@ -10,33 +10,9 @@
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/table.css">
-    <style>
-        .column1 {
-            width: 10%;
-        }
-
-        .column2 {
-            width: 20%
-        }
-
-        .column3 {
-            width: 25%
-        }
-
-        .column4 {
-            width: 2%
-        }
-
-        .column5 {
-            width: 2%
-        }
-
-        .column6 {
-            width: 2%
-        }
-    </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -87,7 +63,7 @@
 
                 </ul>
             </nav>
-            <section>
+            <section style="width: 150%;">
                 <div id="inprogress" class="tab1">
 
                 </div>
@@ -118,8 +94,67 @@
             </div>
         </div>
     </div>
+    <div style=" position: absolute;z-index: 1;">
+        <div id="input-mark" style="display: none;">
+            <div class="change-password-container">
 
+                <div class="col-sm-4">
+                    <button id="closeButton" onclick="hideInputMark()"><ion-icon
+                            name="close-outline"></ion-icon></button>
+                    <div class="changepw-label">Nhập điểm</div>
+                    <label>Điểm thành phần</label>
+                    <div class="form-group pass_show">
+                        <input type="number" class="form-control" step="0.01">
+                    </div>
+                    <label>Điểm giữa kỳ</label>
+                    <div class="form-group pass_show">
+                        <input type="number" class="form-control" step="0.01">
+                    </div>
+                    <label>Điểm cuối kỳ</label>
+                    <div class="form-group pass_show">
+                        <input type="number" class="form-control" step="0.01">
+                    </div>
+                    <div class="col-sm-12">
+                        <a class="btn btn-info " style="position:relative;left: 40%; top:20px;" id="">Xác
+                            nhận</a>
+                    </div>
 
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div style=" position: absolute;z-index: 1;">
+        <div id="modify-mark" style="display: none;">
+            <div class="change-password-container">
+
+                <div class="col-sm-4">
+                    <button id="closeButton" onclick="hideModifyMark()"><ion-icon
+                            name="close-outline"></ion-icon></button>
+                    <div class="changepw-label">Sửa điểm</div>
+                    <label>Điểm thành phần</label>
+                    <div class="form-group pass_show">
+                        <input type="number" class="form-control" step="0.01">
+                    </div>
+                    <label>Điểm giữa kỳ</label>
+                    <div class="form-group pass_show">
+                        <input type="number" class="form-control" step="0.01">
+                    </div>
+                    <label>Điểm cuối kỳ</label>
+                    <div class="form-group pass_show">
+                        <input type="number" class="form-control" step="0.01">
+                    </div>
+                    <div class="col-sm-12">
+                        <a class="btn btn-info " style="position:relative;left: 40%; top:20px;" id="">Xác
+                            nhận</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
     <form name="delete-form" method="POST" action=""></form>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
