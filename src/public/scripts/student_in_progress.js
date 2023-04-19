@@ -15,21 +15,66 @@ $(document).ready(function () {
     courseID = $('a[data-bs-toggle="getID"]').attr('data-courseID');
 })
 
-$(document).on('click', '#delete-student-btn', function () {
-    console.log('delete')
-    deleteForm.action = '/course/delete-student/' + studentID + '/' + courseID + '?_method=DELETE'
-    deleteForm.submit()
-});
-function markSubmit() {
-    var form = document.forms['input-mark-form'];
-    form.action = '/course/complete-course/' + studentID + '/' + courseID;
-    form.submit();
+function deleteStudent(event) {
+    {
+        event.preventDefault();
+        $.ajax({
+            type: 'DELETE',
+            url: '/course/delete-student/' + studentID + '/' + courseID,
+            success: function (data) {
+                // Xử lý kết quả trả về nếu có
+                alert('Xóa sinh viên thành công');
+                $("#inprogress").load("course-student/inprogress/" + courseId);
+                document.getElementById('#deleteModal').setAttribute('aria-hidden', 'true');
+            },
+            error: function (xhr, status, error) {
+                // Xử lý lỗi nếu có
+                alert('Lỗi khi xóa sinh viên: ' + error);
+                document.getElementById('#deleteModal').setAttribute('aria-hidden', 'true');
+            }
+        });
+
+    }
+}
+function markSubmit(event) {
+    event.preventDefault();
+    const url = '/course/complete-course/' + studentID + '/' + courseID
+    const formData = new FormData(document.forms['input-mark-form']);
+
+    fetch(url, {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => {
+            // Xử lý response tại đây 
+            alert('Thêm thành công');
+            $("#inprogress").load("course-student/inprogress/" + courseId);
+            hideInputMark()
+        })
+        .catch(error => {
+            alert('Lỗi : ' + error);
+        });
 }
 
-function addSubmit() {
-    var form = document.forms['add-student-form'];
-    form.action = '/course/add-student/' + courseID;
-    form.submit();
+function addSubmit(event) {
+    event.preventDefault();
+    const url = '/course/add-student/' + courseID
+    const formData = new FormData(document.forms['add-student-form']);
+
+    fetch(url, {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => {
+            // Xử lý response tại đây 
+            alert('Thêm thành công');
+            $("#inprogress").load("course-student/inprogress/" + courseId);
+            hideAddStudentForm()
+        })
+        .catch(error => {
+            alert('Lỗi : ' + error);
+        });
+
 }
 
 function showInputMark() {

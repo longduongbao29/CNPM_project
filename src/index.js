@@ -12,12 +12,19 @@ const flash = require('connect-flash')
 const expressValidator = require('express-validator')
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override')
+const multer = require('multer');
+const upload = multer();
+
+
 const app = express()
 
 mongodb.connectDB()
 app.use(cookieParser())
 app.use(express.json({ limit: "50mb" }))
 app.use(flash())
+
+// Sử dụng multer middleware cho tất cả các route
+app.use(upload.none());
 //Express session lưu phiên đăng nhập
 app.use(expressSession({
     name: "longduong.sid",

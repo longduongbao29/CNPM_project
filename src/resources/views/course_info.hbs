@@ -88,7 +88,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <a href="#"><button id="delete-student-btn" type="button" class="btn btn-danger">Xóa</button></a>
+                    <a href="#"><button onclick="deleteStudent(event)" type="button"
+                            class="btn btn-danger">Xóa</button></a>
 
                 </div>
             </div>
@@ -119,7 +120,7 @@
                         </div>
                         <div class="col-sm-12">
                             <a class="btn btn-info " style="position:relative;left: 40%; top:20px;"
-                                onclick="markSubmit()" id="input-mark-confirm">Xác
+                                onclick="markSubmit(event)" id="input-mark-confirm">Xác
                                 nhận</a>
                         </div>
                     </form>
@@ -148,7 +149,7 @@
 
                         <div class="col-sm-12">
                             <a class="btn btn-info " style="position:relative;left: 40%; top:20px;"
-                                onclick="addSubmit()" id="">Xác
+                                onclick="addSubmit(event)" id="">Xác
                                 nhận</a>
                         </div>
                     </form>
@@ -162,9 +163,10 @@
     <div style=" position: absolute;z-index: 1;">
         <div id="modify-mark" style="display: none;">
             <div class="change-password-container">
-                <form name="modify-mark-form" action="" method="POST">
-                    <div class="col-sm-4">
-                        <button id="closeButton" onclick="hideModifyMark()"><ion-icon
+
+                <div class="col-sm-4">
+                    <form name="modify-mark-form" action="" method="POST">
+                        <button type="button" id="closeButton" onclick="hideModifyMark()"><ion-icon
                                 name="close-outline"></ion-icon></button>
                         <div class="changepw-label">Sửa điểm</div>
                         <label>Điểm thành phần</label>
@@ -181,12 +183,13 @@
                         </div>
                         <div class="col-sm-12">
                             <a class="btn btn-info " style="position:relative;left: 40%; top:20px;" id=""
-                                onclick="updateMark()">Xác
-                                nhận</a>
+                                onclick="updateMark(event)">
+                                Xác nhận
+                            </a>
                         </div>
+                    </form>
+                </div>
 
-                    </div>
-                </form>
             </div>
         </div>
     </div>

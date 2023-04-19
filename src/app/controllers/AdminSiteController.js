@@ -191,7 +191,7 @@ class AdminSiteController {
 
         const studentid = req.params.studentid
         const courseid = req.params.courseid
-        let mark = getMark(req.body, mark1, req.body.mark2, req.body.mark3);
+        let mark = getMark(req.body.mark1, req.body.mark2, req.body.mark3);
         let m10 = mark[0], m4 = mark[1], ltrt = mark[2]
 
 
@@ -271,6 +271,7 @@ class AdminSiteController {
 function getMark(mark1, mark2, mark3) {
     let m10, m4, ltrt
     m10 = 0.1 * mark1 + 0.3 * mark2 + 0.6 * mark3
+    m10.toFixed(2)
     if (m10 < 4.0) {
         ltrt = 'F'
         m4 = 0;
