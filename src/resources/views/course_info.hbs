@@ -30,7 +30,7 @@
                         <div class="mt-3">
                             <h4>Thông tin môn học</h4>
                             <p class="info">Tên môn học: {{course.course_name}} </p>
-                            <p class="info">Số tín chỉ: {{course.credits}}</p>
+                            <p class="info">Số tín chỉ: {{course.course_credits}}</p>
                             <p class="info">Số tiết: {{course.num_of_lessons}}</p>
                             <p class="info">Số sinh viên: {{course.num_of_pupils}}</p>
                             <p class="info">Giảng viên: {{course.teacher_name}}</p>
@@ -49,7 +49,7 @@
             <input id="tab3" type="radio" name="pct" />
             <nav>
                 <ul>
-
+                    <a data-bs-toggle="getID" data-courseID="{{course.course_ID}}"></a>
                     <li id="tab1" class="tab1">
                         <a class="btn-link" data-bs-toggle="inprogress" data-id="{{course._id}}">
                             <label for="tab1">Đang học</label>
@@ -63,7 +63,7 @@
 
                 </ul>
             </nav>
-            <section style="width: 150%;">
+            <section style="width: 100%;">
                 <div id="inprogress" class="tab1">
 
                 </div>
@@ -88,73 +88,109 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <a href="#"><button id="btn-delete" type="button" class="btn btn-danger">Xóa</button></a>
+                    <a href="#"><button id="delete-student-btn" type="button" class="btn btn-danger">Xóa</button></a>
 
                 </div>
             </div>
         </div>
     </div>
+    {{!-- Input Mark Form --}}
     <div style=" position: absolute;z-index: 1;">
         <div id="input-mark" style="display: none;">
             <div class="change-password-container">
 
                 <div class="col-sm-4">
-                    <button id="closeButton" onclick="hideInputMark()"><ion-icon
-                            name="close-outline"></ion-icon></button>
-                    <div class="changepw-label">Nhập điểm</div>
-                    <label>Điểm thành phần</label>
-                    <div class="form-group pass_show">
-                        <input type="number" class="form-control" step="0.01">
-                    </div>
-                    <label>Điểm giữa kỳ</label>
-                    <div class="form-group pass_show">
-                        <input type="number" class="form-control" step="0.01">
-                    </div>
-                    <label>Điểm cuối kỳ</label>
-                    <div class="form-group pass_show">
-                        <input type="number" class="form-control" step="0.01">
-                    </div>
-                    <div class="col-sm-12">
-                        <a class="btn btn-info " style="position:relative;left: 40%; top:20px;" id="">Xác
-                            nhận</a>
-                    </div>
-
+                    <form name="input-mark-form" action="" method="POST">
+                        <button type="button" id="closeButton" onclick="hideInputMark()">
+                            <ion-icon name="close-outline"></ion-icon>
+                        </button>
+                        <div class="changepw-label">Nhập điểm</div>
+                        <label>Điểm thành phần</label>
+                        <div class="form-group pass_show">
+                            <input name="mark1" type="number" class="form-control" step="0.01">
+                        </div>
+                        <label>Điểm giữa kỳ</label>
+                        <div class="form-group pass_show">
+                            <input name="mark2" type="number" class="form-control" step="0.01">
+                        </div>
+                        <label>Điểm cuối kỳ</label>
+                        <div class="form-group pass_show">
+                            <input name="mark3" type="number" class="form-control" step="0.01">
+                        </div>
+                        <div class="col-sm-12">
+                            <a class="btn btn-info " style="position:relative;left: 40%; top:20px;"
+                                onclick="markSubmit()" id="input-mark-confirm">Xác
+                                nhận</a>
+                        </div>
+                    </form>
                 </div>
 
             </div>
         </div>
     </div>
 
+
+    {{!-- Add student --}}
+    <div style=" position: absolute;z-index: 1;">
+        <div id="add-student" style="display: none;">
+            <div class="change-password-container">
+
+                <div class="col-sm-4" style="height:250px">
+                    <form name="add-student-form" action="" method="POST">
+                        <button type="button" id="closeButton" onclick="hideAddStudentForm()">
+                            <ion-icon name="close-outline"></ion-icon>
+                        </button>
+                        <div class="changepw-label">Thêm sinh viên</div>
+                        <label>Mã số sinh viên:</label>
+                        <div class="form-group pass_show">
+                            <input name="studentid" type="text" class="form-control">
+                        </div>
+
+                        <div class="col-sm-12">
+                            <a class="btn btn-info " style="position:relative;left: 40%; top:20px;"
+                                onclick="addSubmit()" id="">Xác
+                                nhận</a>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {{!-- Update mark --}}
     <div style=" position: absolute;z-index: 1;">
         <div id="modify-mark" style="display: none;">
             <div class="change-password-container">
+                <form name="modify-mark-form" action="" method="POST">
+                    <div class="col-sm-4">
+                        <button id="closeButton" onclick="hideModifyMark()"><ion-icon
+                                name="close-outline"></ion-icon></button>
+                        <div class="changepw-label">Sửa điểm</div>
+                        <label>Điểm thành phần</label>
+                        <div class="form-group pass_show">
+                            <input name="mark1" type="number" class="form-control" step="0.01">
+                        </div>
+                        <label>Điểm giữa kỳ</label>
+                        <div class="form-group pass_show">
+                            <input name="mark2" type="number" class="form-control" step="0.01">
+                        </div>
+                        <label>Điểm cuối kỳ</label>
+                        <div class="form-group pass_show">
+                            <input name="mark3" type="number" class="form-control" step="0.01">
+                        </div>
+                        <div class="col-sm-12">
+                            <a class="btn btn-info " style="position:relative;left: 40%; top:20px;" id=""
+                                onclick="updateMark()">Xác
+                                nhận</a>
+                        </div>
 
-                <div class="col-sm-4">
-                    <button id="closeButton" onclick="hideModifyMark()"><ion-icon
-                            name="close-outline"></ion-icon></button>
-                    <div class="changepw-label">Sửa điểm</div>
-                    <label>Điểm thành phần</label>
-                    <div class="form-group pass_show">
-                        <input type="number" class="form-control" step="0.01">
                     </div>
-                    <label>Điểm giữa kỳ</label>
-                    <div class="form-group pass_show">
-                        <input type="number" class="form-control" step="0.01">
-                    </div>
-                    <label>Điểm cuối kỳ</label>
-                    <div class="form-group pass_show">
-                        <input type="number" class="form-control" step="0.01">
-                    </div>
-                    <div class="col-sm-12">
-                        <a class="btn btn-info " style="position:relative;left: 40%; top:20px;" id="">Xác
-                            nhận</a>
-                    </div>
-
-                </div>
-
+                </form>
             </div>
         </div>
     </div>
+
     <form name="delete-form" method="POST" action=""></form>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>

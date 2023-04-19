@@ -30,4 +30,11 @@ router.get('/course/:id', AuthController.loginRequired, authenticate, adminSiteC
 router.get('/course-info/:id', AuthController.loginRequired, authenticate, adminSiteController.courseInfo)
 router.get('/course-student/inprogress/:id', AuthController.loginRequired, authenticate, adminSiteController.studentInProgress)
 router.get('/course-student/completed/:id', AuthController.loginRequired, authenticate, adminSiteController.studentCompleted)
+
+router.post('/course/complete-course/:studentid/:courseid', AuthController.loginRequired, authenticate, adminSiteController.completeCourse)
+router.post('/course/add-student/:courseid', AuthController.loginRequired, authenticate, adminSiteController.addStudentToCourse)
+
+router.delete('/course/delete-student/:studentid/:courseid', AuthController.loginRequired, authenticate, adminSiteController.deleteStudentInCourse)
+router.put('/course/update-mark/:studentid/:courseid', AuthController.loginRequired, authenticate, adminSiteController.updateMark)
+
 module.exports = router

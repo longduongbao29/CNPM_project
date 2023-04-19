@@ -67,13 +67,13 @@
                     <td class="cell100 column2">{{this.name}}</td>
                     <td class="cell100 column3">{{this.course_class}}</td>
                     <td class="cell100 column4">
-                        <a class="btn btn-link" data-bs-toggle="done" data-id="{{this._id}}">
+                        <a class="btn btn-link" data-bs-toggle="done" data-id={{this.studentID}}>
                             <ion-icon name="checkmark-circle-sharp"></ion-icon>
                         </a>
 
                     </td>
                     <td class="cell100 column5">
-                        <a class="btn btn-link" data-bs-toggle="modal" data-id="{{this._id}}"
+                        <a class="btn btn-link" data-bs-toggle="modal" data-id={{this.studentID}}
                             data-bs-target="#deleteModal"><ion-icon name="trash"></ion-icon></a>
                     </td>
 

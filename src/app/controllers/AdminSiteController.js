@@ -5,6 +5,7 @@ const moment = require('moment');
 
 const bcrypt = require('bcryptjs');
 const CourseInfo = require('../models/CourseInfo');
+const { courses_in_progress } = require('./SiteController');
 
 class AdminSiteController {
     async home(req, res) {
@@ -93,6 +94,7 @@ class AdminSiteController {
     }
 
     async updateStudent(req, res, next) {
+
         StudentInfo.updateOne({ _id: req.params.id }, req.body).then(() => {
             res.redirect('/admin')
         }).catch(next)
@@ -133,7 +135,6 @@ class AdminSiteController {
             }
         }
         )
-        console.log(courseID)
         let students = [], courses
         await CoursesInProgress.find({ course_ID: courseID }).then(courses_ => {
             courses = courses_.map(course => course.toObject());
@@ -185,6 +186,121 @@ class AdminSiteController {
 
 
     }
+
+    async completeCourse(req, res, next) {
+
+        const studentid = req.params.studentid
+        const courseid = req.params.courseid
+        let mark = getMark(req.body, mark1, req.body.mark2, req.body.mark3);
+        let m10 = mark[0], m4 = mark[1], ltrt = mark[2]
+
+
+
+        const complete_course = new Completed_Courses({
+            studentID: studentid,
+            course_ID: courseid,
+            mark10: m10,
+            mark4: m4,
+            letter_ratings: ltrt
+        })
+        try {
+            await complete_course.save()
+            await CoursesInProgress.deleteOne({ studentID: studentid })
+            res.sendStatus(200)
+        } catch (error) {
+            res.sendStatus(404)
+        }
+
+
+
+    }
+    async addStudentToCourse(req, res, next) {
+        const studentid = req.body.studentid
+        const courseid = req.params.courseid
+        let exist = await CoursesInProgress.findOne({ studentid: studentid })
+        console.log(exist)
+        if (exist) {
+            return res.sendStatus(400)
+        }
+
+        const new_student = new CoursesInProgress({
+            studentID: studentid,
+            course_ID: courseid,
+            attendance_check: 0
+        })
+
+        try {
+            await new_student.save()
+            res.sendStatus(200)
+        } catch (error) {
+            res.sendStatus(404)
+        }
+    }
+
+    async deleteStudentInCourse(req, res) {
+        try {
+            await CoursesInProgress.deleteOne({ studentID: req.params.studentid, course_ID: req.params.courseid });
+            await Completed_Courses.deleteOne({ studentID: req.params.studentid, course_ID: req.params.courseid });
+            res.sendStatus(200)
+
+        } catch (err) {
+            res.sendStatus(404)
+        }
+    }
+
+    async updateMark(req, res, next) {
+        let mark = getMark(req.body.mark1, req.body.mark2, req.body.mark3);
+        console.log(mark)
+        let update_mark = {
+            studentID: req.params.studentid,
+            course_ID: req.params.courseid,
+            mark10: mark[0],
+            mark4: mark[1],
+            letter_ratings: mark[2]
+        }
+        try {
+            await Completed_Courses.updateOne({ studentID: req.params.studentid, course_ID: req.params.courseid }, update_mark);
+            res.sendStatus(200)
+        } catch (error) {
+            res.sendStatus(404)
+        }
+
+    }
 }
 
+function getMark(mark1, mark2, mark3) {
+    let m10, m4, ltrt
+    m10 = 0.1 * mark1 + 0.3 * mark2 + 0.6 * mark3
+    if (m10 < 4.0) {
+        ltrt = 'F'
+        m4 = 0;
+    } else if (m10 >= 4.0 && m10 < 5) {
+        ltrt = 'D'
+        m4 = 1.0;
+    } else if (m10 >= 5.0 && m10 < 5.5) {
+        ltrt = 'D+'
+        m4 = 1.5;
+    } else if (m10 >= 5.5 && m10 < 6.5) {
+        ltrt = 'C'
+        m4 = 2;
+    } else if (m10 >= 6.5 && m10 < 7) {
+        ltrt = 'C+'
+        m4 = 2.5;
+    } else if (m10 >= 7 && m10 < 8) {
+        ltrt = 'B'
+        m4 = 3;
+    } else if (m10 >= 8 && m10 < 8.5) {
+        ltrt = 'B+'
+        m4 = 3.5;
+    } else if (m10 >= 8.5 && m10 < 9) {
+        ltrt = 'A'
+        m4 = 3.7;
+    } else if (m10 >= 9) {
+        ltrt = 'A+'
+        m4 = 4.0;
+
+    }
+
+    return [m10, m4, ltrt]
+}
 module.exports = new AdminSiteController

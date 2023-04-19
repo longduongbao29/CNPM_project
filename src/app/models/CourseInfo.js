@@ -8,7 +8,7 @@ const courseInfoSchema = new Schema({
     course_name: {
         type: String
     },
-    credits: {
+    course_credits: {
         type: Number
     },
     num_of_lessons: {
