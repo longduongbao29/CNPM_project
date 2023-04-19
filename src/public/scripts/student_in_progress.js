@@ -16,25 +16,24 @@ $(document).ready(function () {
 })
 
 function deleteStudent(event) {
-    {
-        event.preventDefault();
-        $.ajax({
-            type: 'DELETE',
-            url: '/course/delete-student/' + studentID + '/' + courseID,
-            success: function (data) {
-                // Xử lý kết quả trả về nếu có
-                alert('Xóa sinh viên thành công');
-                $("#inprogress").load("course-student/inprogress/" + courseId);
-                document.getElementById('#deleteModal').setAttribute('aria-hidden', 'true');
-            },
-            error: function (xhr, status, error) {
-                // Xử lý lỗi nếu có
-                alert('Lỗi khi xóa sinh viên: ' + error);
-                document.getElementById('#deleteModal').setAttribute('aria-hidden', 'true');
-            }
-        });
+    event.preventDefault();
+    $.ajax({
+        type: 'DELETE',
+        url: '/course/delete-student/' + studentID + '/' + courseID,
+        success: function (data) {
+            // Xử lý kết quả trả về nếu có
+            alert('Xóa sinh viên thành công');
+            $("#inprogress").load("course-student/inprogress/" + courseId);
 
-    }
+        },
+        error: function (xhr, status, error) {
+            // Xử lý lỗi nếu có
+            alert('Lỗi khi xóa sinh viên: ' + error);
+
+        }
+    });
+
+
 }
 function markSubmit(event) {
     event.preventDefault();

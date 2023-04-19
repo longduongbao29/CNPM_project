@@ -109,7 +109,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <a href="#"><button id="btn-delete" type="button" class="btn btn-danger">Xóa</button></a>
+                    <a onclick="deleteCourse(event)" href="#"><button id="btn-delete" type="button"
+                            class="btn btn-danger">Xóa</button></a>
 
                 </div>
             </div>
@@ -123,7 +124,7 @@
             <button id="closeButton" onclick="hideAddCourseForm()"><ion-icon name="close-outline"></ion-icon></button>
             <div class="title">Thêm môn học</div>
 
-            <form action="/store-course" method="POST">
+            <form name="add-course-form" action="" method="POST" onsubmit="addCourse(event)">
                 <div class="formbold-mb-5">
                     <label for="course_ID" class="formbold-form-label">Mã môn học </label>
                     <input type="text" name="course_ID" id="course_ID" placeholder="12345678"

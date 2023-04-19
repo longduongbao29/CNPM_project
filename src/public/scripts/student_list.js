@@ -1,25 +1,77 @@
-
-
 var studentId;
 var deleteForm = document.forms['delete-form']
 var editForm = document.forms['edit-form']
+var addStudentForm = document.forms['add-student-form']
 
-$(document).on('click', '#admin-add-student', function () {
-    localStorage.setItem('state', 'student-list');
-});
+function addStudent(event) {
+    event.preventDefault();
+    const url = '/store-student'
+    const formData = new FormData(addStudentForm);
+
+    fetch(url, {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => {
+            // Xử lý response tại đây 
+            alert('Thêm thành công');
+            $("#displayHTML").load("student-list");
+
+
+        })
+        .catch(error => {
+            alert('Lỗi : ' + error);
+        });
+
+
+}
+
 $('a[data-bs-toggle="modal"]').click(function () {
     studentId = $(this).data('id');
 });
-$(document).on('click', '#btn-delete', function () {
-    deleteForm.action = '/' + studentId + '/delete-student' + '?_method=DELETE'
-    deleteForm.submit()
-    localStorage.setItem('state', 'student-list');
-});
-$(document).on('click', '#edit-submit', function () {
-    editForm.action = '/' + studentId + '/update-student' + '?_method=PUT'
-    editForm.submit()
-    localStorage.setItem('state', 'student-list');
-});
+function deleteStudent(event) {
+    event.preventDefault();
+    $.ajax({
+        type: 'DELETE',
+        url: '/' + studentId + '/delete-student',
+        success: function (data) {
+            // Xử lý kết quả trả về nếu có
+            alert('Xóa sinh viên thành công');
+            $("#displayHTML").load("student-list");
+            var style = document.createElement('style');
+            style.textContent = '.modal-backdrop { display: none; }';
+            document.head.appendChild(style);
+
+        },
+        error: function (xhr, status, error) {
+            // Xử lý lỗi nếu có
+            alert('Lỗi khi xóa sinh viên: ' + error);
+            var style = document.createElement('style');
+            style.textContent = '.modal-backdrop { display: none; }';
+            document.head.appendChild(style);
+        }
+    });
+}
+
+function editStudent(event) {
+    event.preventDefault();
+    const url = '/' + studentId + '/update-student'
+    const formData = new FormData(editForm);
+
+    fetch(url, {
+        method: 'PUT',
+        body: formData
+    })
+        .then(response => {
+            // Xử lý response tại đây 
+            alert('Sửa thành công');
+            $("#displayHTML").load("student-list");
+            hideInputMark()
+        })
+        .catch(error => {
+            alert('Lỗi : ' + error);
+        });
+}
 
 function showAddStudentForm() {
     var form = document.getElementById("add-student-form");

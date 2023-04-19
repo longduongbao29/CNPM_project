@@ -1,23 +1,78 @@
 var courseId;
 var deleteForm = document.forms['delete-form']
 var editForm = document.forms['edit-form']
+var addCourseForm = document.forms['add-course-form']
 
-$(document).on('click', '#admin-add-course', function () {
-    localStorage.setItem('state', 'course-list');
-});
+function addCourse(event) {
+    event.preventDefault();
+    const url = '/store-course'
+    const formData = new FormData(addCourseForm);
+
+    fetch(url, {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => {
+            // Xử lý response tại đây 
+            alert('Thêm thành công');
+            $("#displayHTML").load("course-list");
+
+        })
+        .catch(error => {
+            alert('Lỗi : ' + error);
+        });
+
+
+}
+
+function deleteCourse(event) {
+    event.preventDefault();
+    $.ajax({
+        type: 'DELETE',
+        url: '/' + courseId + '/delete-course',
+        success: function (data) {
+            // Xử lý kết quả trả về nếu có
+            alert('Xóa khóa học thành công');
+            $("#displayHTML").load("course-list");
+            var style = document.createElement('style');
+            style.textContent = '.modal-backdrop { display: none; }';
+            document.head.appendChild(style);
+
+        },
+        error: function (xhr, status, error) {
+            // Xử lý lỗi nếu có
+            alert('Lỗi khi xóa khóa học: ' + error);
+            var style = document.createElement('style');
+            style.textContent = '.modal-backdrop { display: none; }';
+            document.head.appendChild(style);
+        }
+    });
+}
+
+function editCourse(event) {
+    event.preventDefault();
+    const url = '/' + courseId + '/update-course'
+    const formData = new FormData(editForm);
+
+    fetch(url, {
+        method: 'PUT',
+        body: formData
+    })
+        .then(response => {
+            // Xử lý response tại đây 
+            alert('Sửa thành công');
+            $("#displayHTML").load("course-list");
+        })
+        .catch(error => {
+            alert('Lỗi : ' + error);
+        });
+}
+
+
 $('a[data-bs-toggle="modal"]').click(function () {
     courseId = $(this).data('id');
 });
-$(document).on('click', '#btn-delete', function () {
-    deleteForm.action = '/' + courseId + '/delete-course' + '?_method=DELETE'
-    deleteForm.submit()
-    localStorage.setItem('state', 'course-list');
-});
-$(document).on('click', '#edit-submit', function () {
-    editForm.action = '/' + courseId + '/update-course' + '?_method=PUT'
-    editForm.submit()
-    localStorage.setItem('state', 'course-list');
-});
+
 
 function showAddCourseForm() {
     var form = document.getElementById("add-course-form");

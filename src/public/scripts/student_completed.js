@@ -23,12 +23,12 @@ function deleteStudent(event) {
             // Xử lý kết quả trả về nếu có
             alert('Xóa sinh viên thành công');
             $("#completed").load("course-student/completed/" + courseId);
-            document.getElementById('#deleteModal').setAttribute('aria-hidden', 'true');
+           
         },
         error: function (xhr, status, error) {
             // Xử lý lỗi nếu có
             alert('Lỗi khi xóa sinh viên: ' + error);
-            document.getElementById('#deleteModal').setAttribute('aria-hidden', 'true');
+          
         }
     });
 }

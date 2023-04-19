@@ -112,7 +112,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <a href="#"><button id="btn-delete" type="button" class="btn btn-danger">Xóa</button></a>
+                    <a href="#"><button id="btn-delete" onclick="deleteStudent(event)" type="button"
+                            class="btn btn-danger">Xóa</button></a>
 
                 </div>
             </div>
@@ -125,7 +126,7 @@
             <button id="closeButton" onclick="hideAddStudentForm()"><ion-icon name="close-outline"></ion-icon></button>
             <div class="title">Thêm sinh viên</div>
 
-            <form action="/store-student" method="POST">
+            <form name="add-student-form" action="" method="POST" onsubmit="addStudent(event)">
                 <div class="formbold-mb-5">
                     <label for="studentID" class="formbold-form-label">Mã số sinh viên </label>
                     <input type="text" name="studentID" id="studentID" placeholder="12345678"
@@ -161,7 +162,7 @@
                 </div>
                 <div class="formbold-mb-5">
                     <label for="address" class="formbold-form-label"> Địa chỉ </label>
-                    <input type="text" name="adress" id="adress"
+                    <input type="text" name="address" id="adress"
                         placeholder="Số 123 đường ABC quận XYZ thành phố Hà Nội" class="formbold-form-input" required>
                 </div>
                 <div class="formbold-mb-5">
@@ -222,7 +223,8 @@
                     <div class="w-full sm:w-half formbold-px-3">
                         <div class="formbold-mb-5">
                             <label for="gender" class="formbold-form-label"> Giới tính </label>
-                            <select name="sex" id="edit-sex" style="border-radius: 10px;padding: 5px;" disabled required>
+                            <select name="sex" id="edit-sex" style="border-radius: 10px;padding: 5px;" disabled
+                                required>
                                 <option value="Nam">Nam</option>
                                 <option value="Nữ">Nữ</option>
                             </select>
@@ -231,7 +233,7 @@
                 </div>
                 <div class="formbold-mb-5">
                     <label for="address" class="formbold-form-label"> Địa chỉ </label>
-                    <input type="text" name="adress" id="edit-address" class="formbold-form-input" disabled required>
+                    <input type="text" name="address" id="edit-address" class="formbold-form-input" disabled required>
                 </div>
                 <div class="formbold-mb-5">
                     <label for="email" class="formbold-form-label">Email</label>
@@ -246,7 +248,8 @@
                     <input type="text" name="image" id="edit-image" class="formbold-form-input" disabled>
                 </div>
                 <div>
-                    <button id="edit-submit" style="display: none; margin-top:25px;" class="formbold-btn">Sửa</button>
+                    <button id="edit-submit" onclick="editStudent(event)" style="display: none; margin-top:25px;"
+                        class="formbold-btn">Sửa</button>
                 </div>
             </form>
         </div>

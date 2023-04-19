@@ -48,7 +48,7 @@ class AdminSiteController {
             new_user.save()
         });
 
-        res.redirect('/admin')
+        res.sendStatus(200)
 
     }
 
@@ -56,7 +56,7 @@ class AdminSiteController {
         const data = req.body
         const new_course = new CourseInfo(data)
         new_course.save()
-        res.redirect('/admin')
+        res.sendStatus(200)
     }
 
     async getStudent(req, res, next) {
@@ -96,21 +96,20 @@ class AdminSiteController {
     async updateStudent(req, res, next) {
 
         StudentInfo.updateOne({ _id: req.params.id }, req.body).then(() => {
-            res.redirect('/admin')
+            res.sendStatus(200)
         }).catch(next)
     }
 
     async updateCourse(req, res, next) {
         CourseInfo.updateOne({ _id: req.params.id }, req.body).then(() => {
-            res.redirect('/admin')
+            res.sendStatus(200)
         }).catch(next)
     }
 
     async deleteStudent(req, res, next) {
         try {
             await StudentInfo.deleteOne({ _id: req.params.id });
-            res.redirect('/admin')
-
+            res.sendStatus(200)
         } catch (err) {
             next(err);
         }
@@ -119,8 +118,7 @@ class AdminSiteController {
     async deleteCourse(req, res, next) {
         try {
             await CourseInfo.deleteOne({ _id: req.params.id });
-            res.redirect('/admin')
-
+            res.sendStatus(200)
         } catch (err) {
             next(err);
         }
