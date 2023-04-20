@@ -141,6 +141,8 @@ function hideEditStudentForm() {
     inputs.forEach(input => {
         input.setAttribute('disabled', true);
     });
+    const selectedInput = formEdit.querySelector('select');
+    selectedInput.setAttribute('disabled', true);
     editBtn.style.display = "none";
     var form = document.getElementById("edit-student-form");
     form.style.display = "none";
@@ -150,7 +152,7 @@ function hideEditStudentForm() {
 function showEditBtn() {
     const formEdit = document.getElementById("edit-form");
     const inputs = formEdit.querySelectorAll('input');
-    
+
     const editBtn = document.getElementById("edit-submit");
     inputs.forEach(input => {
         input.removeAttribute('disabled', true);
