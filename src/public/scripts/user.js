@@ -16,3 +16,7 @@ $(document).on('click', '#mark', function () {
 $(document).on('click', '#profile', function () {
     $("#displayHTML").load("profile");
 });
+
+$(document).ready(function () {
+    $("#displayHTML").load("home");
+})
