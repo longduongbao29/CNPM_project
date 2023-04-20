@@ -6,7 +6,7 @@ const moment = require('moment');
 
 const bcrypt = require('bcryptjs');
 const CourseInfo = require('../models/CourseInfo');
-const { courses_in_progress } = require('./SiteController');
+
 
 class AdminSiteController {
     async home(req, res) {

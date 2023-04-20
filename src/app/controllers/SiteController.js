@@ -2,6 +2,9 @@ const CourseInfo = require('../models/CourseInfo')
 const { StudentInfo } = require('../models/Models')
 const { Completed_Courses } = require('../models/Models')
 const { CoursesInProgress } = require('../models/Models')
+const { User } = require("../models/Models")
+
+const bcrypt = require('bcryptjs');
 
 const moment = require('moment');
 
@@ -131,6 +134,33 @@ class SiteController {
 
     async sidebar(req, res) {
         res.render('sidebar')
+    }
+
+    async changePassword(req, res) {
+        let currentPassword = req.body.currentpass, newpass1 = req.body.newpass1, newpass2 = req.body.newpass2
+
+        console.log(currentPassword, newpass1, newpass2)
+        let user = await User.findOne({ studentID: req.session.accountID })
+        bcrypt.compare(currentPassword, user.password, function (err, result) {
+            if (result) {
+                if (newpass1 === newpass2) {
+                    bcrypt.hash(newpass1, 10, function (err, password_) {
+                        User.updateOne({ studentID: req.session.accountID }, {
+                            username: req.session.accountID,
+                            password: password_
+                        }).then(() => {
+                            res.sendStatus(200)
+                        })
+                    });
+                }
+                else {
+                    res.sendStatus(401)
+                }
+            } else {
+                res.sendStatus(402)
+            }
+        })
+
     }
 
 }
