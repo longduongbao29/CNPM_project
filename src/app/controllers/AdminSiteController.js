@@ -130,7 +130,9 @@ class AdminSiteController {
 
     async deleteStudent(req, res, next) {
         try {
-            await StudentInfo.deleteOne({ _id: req.params.id });
+            let student = await StudentInfo.findByIdAndRemove(req.params.id)
+            await User.deleteOne({ studentID: student.studentID })
+
             res.sendStatus(200)
         } catch (err) {
             if (err instanceof mongoose.Error.ValidationError) {
