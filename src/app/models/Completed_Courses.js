@@ -4,18 +4,23 @@ const Schema = mongoose.Schema
 const completedCourseSchema = new Schema({
     studentID: {
         type: String,
+        required: true
     },
     course_ID: {
         type: String,
+        required: true
     },
     mark10: {
-        type: Number
+        type: Number,
+        required: true
     },
     letter_ratings: {
-        type: String
+        type: String,
+        required: true
     },
     mark4: {
-        type: Number
+        type: Number,
+        required: true
     }
 
 })

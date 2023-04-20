@@ -46,9 +46,15 @@ function markSubmit(event) {
     })
         .then(response => {
             // Xử lý response tại đây 
-            alert('Thêm thành công');
             $("#inprogress").load("course-student/inprogress/" + courseId);
             hideInputMark()
+
+            let status = response.status
+            if (status == 200) {
+                alert('Thêm thành công');
+            } else if (status == 402) {
+                alert('Điểm không hợp lệ');
+            }
         })
         .catch(error => {
             alert('Lỗi : ' + error);
@@ -66,9 +72,18 @@ function addSubmit(event) {
     })
         .then(response => {
             // Xử lý response tại đây 
-            alert('Thêm thành công');
             $("#inprogress").load("course-student/inprogress/" + courseId);
             hideAddStudentForm()
+
+            let status = response.status
+            if (status == 200) {
+                alert('Thêm thành công');
+            } else if (status == 400) {
+                alert('Sinh viên đã tồn tại');
+            }
+            else if (status == 401) {
+                alert('Không tìm thấy sinh viên');
+            }
         })
         .catch(error => {
             alert('Lỗi : ' + error);

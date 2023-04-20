@@ -3,16 +3,21 @@ const Schema = mongoose.Schema
 
 const studentInfoSchema = new Schema({
     studentID: {
-        type: String
+        type: String,
+        required: true,
+        match: [/^[0-9]{8}$/, 'Student ID must be 8 digits']
     },
     name: {
-        type: String
+        type: String,
+        required: true
     },
     course_class: {
-        type: String
+        type: String,
+        required: true
     },
     date_of_birth: {
-        type: Date
+        type: Date,
+        required: true
     },
     sex: {
         type: String

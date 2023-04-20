@@ -15,9 +15,6 @@ router.get('/course-list', AuthController.loginRequired, authenticate, adminSite
 router.post('/store-student', AuthController.loginRequired, authenticate, adminSiteController.storeStudent)
 router.post('/store-course', AuthController.loginRequired, authenticate, adminSiteController.storeCourse)
 
-router.get('/:id/edit-student', AuthController.loginRequired, authenticate, adminSiteController.editStudent)
-router.get('/:id/edit-course', AuthController.loginRequired, authenticate, adminSiteController.editCourse)
-
 router.put('/:id/update-student', AuthController.loginRequired, authenticate, adminSiteController.updateStudent)
 router.put('/:id/update-course', AuthController.loginRequired, authenticate, adminSiteController.updateCourse)
 

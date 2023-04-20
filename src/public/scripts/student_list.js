@@ -14,7 +14,16 @@ function addStudent(event) {
     })
         .then(response => {
             // Xử lý response tại đây 
-            alert('Thêm thành công');
+
+            if (response.status == 200) {
+                alert('Thêm thành công');
+            }
+            else if (response.status == 402) {
+                alert('Sinh viên đã tồn tại');
+            }
+            else {
+                alert('Lỗi đảm bảo MÃ SỐ SINH VIÊN phải là chuỗi số có độ dài 8')
+            }
             $("#displayHTML").load("student-list");
 
 
@@ -64,9 +73,15 @@ function editStudent(event) {
     })
         .then(response => {
             // Xử lý response tại đây 
-            alert('Sửa thành công');
+            if (response.status == 200) {
+                alert('Sửa thành công');
+            }
+            else if (response.status == 401) {
+                alert('Lỗi : Mã số sinh viên phải dài 8 ký tự')
+            }
             $("#displayHTML").load("student-list");
-            hideInputMark()
+
+
         })
         .catch(error => {
             alert('Lỗi : ' + error);

@@ -43,9 +43,16 @@ function updateMark(event) {
     })
         .then(response => {
             // Xử lý response tại đây 
-            alert('Sửa thành công');
+           
             $("#completed").load("course-student/completed/" + courseId);
             hideModifyMark()
+
+            let status = response.status
+            if (status == 200) {
+                alert('Sửa thành công');
+            } else if (status == 402) { 
+                alert('Điểm không hợp lệ');
+            }
         })
         .catch(error => {
             alert('Lỗi khi sửa điểm: ' + error);
