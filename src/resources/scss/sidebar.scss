@@ -25,6 +25,7 @@
 }
 
 body {
+    background: url('/img/background.png') no-repeat;
     min-height: 100vh;
     background-color: var(--body-color);
     transition: var(--tran-05);
