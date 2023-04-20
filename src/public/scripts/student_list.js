@@ -150,9 +150,12 @@ function hideEditStudentForm() {
 function showEditBtn() {
     const formEdit = document.getElementById("edit-form");
     const inputs = formEdit.querySelectorAll('input');
+    
     const editBtn = document.getElementById("edit-submit");
     inputs.forEach(input => {
         input.removeAttribute('disabled', true);
     });
+    const selectedInput = formEdit.querySelector('select');
+    selectedInput.removeAttribute('disabled', true);
     editBtn.style.display = "block"
 }
